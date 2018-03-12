@@ -20,97 +20,131 @@ import Data.StrMap as StrMap
 import AWS.Request as Request
 import AWS.Request.Types as Types
 
-serviceName = "CodeStar" :: String
-
 
 -- | <p>Adds an IAM user to the team for an AWS CodeStar project.</p>
 associateTeamMember :: forall eff. AssociateTeamMemberRequest -> Aff (exception :: EXCEPTION | eff) AssociateTeamMemberResult
-associateTeamMember = Request.request serviceName "associateTeamMember" 
+associateTeamMember = Request.request service method  where
+    service = Request.ServiceName "CodeStar"
+    method = Request.MethodName "associateTeamMember"
 
 
 -- | <p>Reserved for future use. To create a project, use the AWS CodeStar console.</p>
 createProject :: forall eff. CreateProjectRequest -> Aff (exception :: EXCEPTION | eff) CreateProjectResult
-createProject = Request.request serviceName "createProject" 
+createProject = Request.request service method  where
+    service = Request.ServiceName "CodeStar"
+    method = Request.MethodName "createProject"
 
 
 -- | <p>Creates a profile for a user that includes user preferences, such as the display name and email address assocciated with the user, in AWS CodeStar. The user profile is not project-specific. Information in the user profile is displayed wherever the user's information appears to other users in AWS CodeStar.</p>
 createUserProfile :: forall eff. CreateUserProfileRequest -> Aff (exception :: EXCEPTION | eff) CreateUserProfileResult
-createUserProfile = Request.request serviceName "createUserProfile" 
+createUserProfile = Request.request service method  where
+    service = Request.ServiceName "CodeStar"
+    method = Request.MethodName "createUserProfile"
 
 
 -- | <p>Deletes a project, including project resources. Does not delete users associated with the project, but does delete the IAM roles that allowed access to the project.</p>
 deleteProject :: forall eff. DeleteProjectRequest -> Aff (exception :: EXCEPTION | eff) DeleteProjectResult
-deleteProject = Request.request serviceName "deleteProject" 
+deleteProject = Request.request service method  where
+    service = Request.ServiceName "CodeStar"
+    method = Request.MethodName "deleteProject"
 
 
 -- | <p>Deletes a user profile in AWS CodeStar, including all personal preference data associated with that profile, such as display name and email address. It does not delete the history of that user, for example the history of commits made by that user.</p>
 deleteUserProfile :: forall eff. DeleteUserProfileRequest -> Aff (exception :: EXCEPTION | eff) DeleteUserProfileResult
-deleteUserProfile = Request.request serviceName "deleteUserProfile" 
+deleteUserProfile = Request.request service method  where
+    service = Request.ServiceName "CodeStar"
+    method = Request.MethodName "deleteUserProfile"
 
 
 -- | <p>Describes a project and its resources.</p>
 describeProject :: forall eff. DescribeProjectRequest -> Aff (exception :: EXCEPTION | eff) DescribeProjectResult
-describeProject = Request.request serviceName "describeProject" 
+describeProject = Request.request service method  where
+    service = Request.ServiceName "CodeStar"
+    method = Request.MethodName "describeProject"
 
 
 -- | <p>Describes a user in AWS CodeStar and the user attributes across all projects.</p>
 describeUserProfile :: forall eff. DescribeUserProfileRequest -> Aff (exception :: EXCEPTION | eff) DescribeUserProfileResult
-describeUserProfile = Request.request serviceName "describeUserProfile" 
+describeUserProfile = Request.request service method  where
+    service = Request.ServiceName "CodeStar"
+    method = Request.MethodName "describeUserProfile"
 
 
 -- | <p>Removes a user from a project. Removing a user from a project also removes the IAM policies from that user that allowed access to the project and its resources. Disassociating a team member does not remove that user's profile from AWS CodeStar. It does not remove the user from IAM.</p>
 disassociateTeamMember :: forall eff. DisassociateTeamMemberRequest -> Aff (exception :: EXCEPTION | eff) DisassociateTeamMemberResult
-disassociateTeamMember = Request.request serviceName "disassociateTeamMember" 
+disassociateTeamMember = Request.request service method  where
+    service = Request.ServiceName "CodeStar"
+    method = Request.MethodName "disassociateTeamMember"
 
 
 -- | <p>Lists all projects in AWS CodeStar associated with your AWS account.</p>
 listProjects :: forall eff. ListProjectsRequest -> Aff (exception :: EXCEPTION | eff) ListProjectsResult
-listProjects = Request.request serviceName "listProjects" 
+listProjects = Request.request service method  where
+    service = Request.ServiceName "CodeStar"
+    method = Request.MethodName "listProjects"
 
 
 -- | <p>Lists resources associated with a project in AWS CodeStar.</p>
 listResources :: forall eff. ListResourcesRequest -> Aff (exception :: EXCEPTION | eff) ListResourcesResult
-listResources = Request.request serviceName "listResources" 
+listResources = Request.request service method  where
+    service = Request.ServiceName "CodeStar"
+    method = Request.MethodName "listResources"
 
 
 -- | <p>Gets the tags for a project.</p>
 listTagsForProject :: forall eff. ListTagsForProjectRequest -> Aff (exception :: EXCEPTION | eff) ListTagsForProjectResult
-listTagsForProject = Request.request serviceName "listTagsForProject" 
+listTagsForProject = Request.request service method  where
+    service = Request.ServiceName "CodeStar"
+    method = Request.MethodName "listTagsForProject"
 
 
 -- | <p>Lists all team members associated with a project.</p>
 listTeamMembers :: forall eff. ListTeamMembersRequest -> Aff (exception :: EXCEPTION | eff) ListTeamMembersResult
-listTeamMembers = Request.request serviceName "listTeamMembers" 
+listTeamMembers = Request.request service method  where
+    service = Request.ServiceName "CodeStar"
+    method = Request.MethodName "listTeamMembers"
 
 
 -- | <p>Lists all the user profiles configured for your AWS account in AWS CodeStar.</p>
 listUserProfiles :: forall eff. ListUserProfilesRequest -> Aff (exception :: EXCEPTION | eff) ListUserProfilesResult
-listUserProfiles = Request.request serviceName "listUserProfiles" 
+listUserProfiles = Request.request service method  where
+    service = Request.ServiceName "CodeStar"
+    method = Request.MethodName "listUserProfiles"
 
 
 -- | <p>Adds tags to a project.</p>
 tagProject :: forall eff. TagProjectRequest -> Aff (exception :: EXCEPTION | eff) TagProjectResult
-tagProject = Request.request serviceName "tagProject" 
+tagProject = Request.request service method  where
+    service = Request.ServiceName "CodeStar"
+    method = Request.MethodName "tagProject"
 
 
 -- | <p>Removes tags from a project.</p>
 untagProject :: forall eff. UntagProjectRequest -> Aff (exception :: EXCEPTION | eff) UntagProjectResult
-untagProject = Request.request serviceName "untagProject" 
+untagProject = Request.request service method  where
+    service = Request.ServiceName "CodeStar"
+    method = Request.MethodName "untagProject"
 
 
 -- | <p>Updates a project in AWS CodeStar.</p>
 updateProject :: forall eff. UpdateProjectRequest -> Aff (exception :: EXCEPTION | eff) UpdateProjectResult
-updateProject = Request.request serviceName "updateProject" 
+updateProject = Request.request service method  where
+    service = Request.ServiceName "CodeStar"
+    method = Request.MethodName "updateProject"
 
 
 -- | <p>Updates a team member's attributes in an AWS CodeStar project. For example, you can change a team member's role in the project, or change whether they have remote access to project resources.</p>
 updateTeamMember :: forall eff. UpdateTeamMemberRequest -> Aff (exception :: EXCEPTION | eff) UpdateTeamMemberResult
-updateTeamMember = Request.request serviceName "updateTeamMember" 
+updateTeamMember = Request.request service method  where
+    service = Request.ServiceName "CodeStar"
+    method = Request.MethodName "updateTeamMember"
 
 
 -- | <p>Updates a user's profile in AWS CodeStar. The user profile is not project-specific. Information in the user profile is displayed wherever the user's information appears to other users in AWS CodeStar. </p>
 updateUserProfile :: forall eff. UpdateUserProfileRequest -> Aff (exception :: EXCEPTION | eff) UpdateUserProfileResult
-updateUserProfile = Request.request serviceName "updateUserProfile" 
+updateUserProfile = Request.request service method  where
+    service = Request.ServiceName "CodeStar"
+    method = Request.MethodName "updateUserProfile"
 
 
 newtype AssociateTeamMemberRequest = AssociateTeamMemberRequest 

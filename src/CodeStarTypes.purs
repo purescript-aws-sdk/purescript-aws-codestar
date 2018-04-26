@@ -5,7 +5,6 @@ import Prelude
 import Data.Foreign.Class (class Decode, class Encode)
 import Data.Foreign.Generic (defaultOptions, genericDecode, genericEncode)
 import Data.Foreign.Generic.Types (Options)
-import Data.Foreign.NullOrUndefined (NullOrUndefined(..))
 import Data.Generic.Rep (class Generic)
 import Data.Generic.Rep.Show (genericShow)
 import Data.Maybe (Maybe(..))
@@ -20,10 +19,10 @@ options = defaultOptions { unwrapSingleConstructors = true }
 
 newtype AssociateTeamMemberRequest = AssociateTeamMemberRequest 
   { "projectId" :: (ProjectId)
-  , "clientRequestToken" :: NullOrUndefined (ClientRequestToken)
+  , "clientRequestToken" :: Maybe (ClientRequestToken)
   , "userArn" :: (UserArn)
   , "projectRole" :: (Role)
-  , "remoteAccessAllowed" :: NullOrUndefined (RemoteAccessAllowed)
+  , "remoteAccessAllowed" :: Maybe (RemoteAccessAllowed)
   }
 derive instance newtypeAssociateTeamMemberRequest :: Newtype AssociateTeamMemberRequest _
 derive instance repGenericAssociateTeamMemberRequest :: Generic AssociateTeamMemberRequest _
@@ -33,17 +32,17 @@ instance encodeAssociateTeamMemberRequest :: Encode AssociateTeamMemberRequest w
 
 -- | Constructs AssociateTeamMemberRequest from required parameters
 newAssociateTeamMemberRequest :: ProjectId -> Role -> UserArn -> AssociateTeamMemberRequest
-newAssociateTeamMemberRequest _projectId _projectRole _userArn = AssociateTeamMemberRequest { "projectId": _projectId, "projectRole": _projectRole, "userArn": _userArn, "clientRequestToken": (NullOrUndefined Nothing), "remoteAccessAllowed": (NullOrUndefined Nothing) }
+newAssociateTeamMemberRequest _projectId _projectRole _userArn = AssociateTeamMemberRequest { "projectId": _projectId, "projectRole": _projectRole, "userArn": _userArn, "clientRequestToken": Nothing, "remoteAccessAllowed": Nothing }
 
 -- | Constructs AssociateTeamMemberRequest's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newAssociateTeamMemberRequest' :: ProjectId -> Role -> UserArn -> ( { "projectId" :: (ProjectId) , "clientRequestToken" :: NullOrUndefined (ClientRequestToken) , "userArn" :: (UserArn) , "projectRole" :: (Role) , "remoteAccessAllowed" :: NullOrUndefined (RemoteAccessAllowed) } -> {"projectId" :: (ProjectId) , "clientRequestToken" :: NullOrUndefined (ClientRequestToken) , "userArn" :: (UserArn) , "projectRole" :: (Role) , "remoteAccessAllowed" :: NullOrUndefined (RemoteAccessAllowed) } ) -> AssociateTeamMemberRequest
-newAssociateTeamMemberRequest' _projectId _projectRole _userArn customize = (AssociateTeamMemberRequest <<< customize) { "projectId": _projectId, "projectRole": _projectRole, "userArn": _userArn, "clientRequestToken": (NullOrUndefined Nothing), "remoteAccessAllowed": (NullOrUndefined Nothing) }
+newAssociateTeamMemberRequest' :: ProjectId -> Role -> UserArn -> ( { "projectId" :: (ProjectId) , "clientRequestToken" :: Maybe (ClientRequestToken) , "userArn" :: (UserArn) , "projectRole" :: (Role) , "remoteAccessAllowed" :: Maybe (RemoteAccessAllowed) } -> {"projectId" :: (ProjectId) , "clientRequestToken" :: Maybe (ClientRequestToken) , "userArn" :: (UserArn) , "projectRole" :: (Role) , "remoteAccessAllowed" :: Maybe (RemoteAccessAllowed) } ) -> AssociateTeamMemberRequest
+newAssociateTeamMemberRequest' _projectId _projectRole _userArn customize = (AssociateTeamMemberRequest <<< customize) { "projectId": _projectId, "projectRole": _projectRole, "userArn": _userArn, "clientRequestToken": Nothing, "remoteAccessAllowed": Nothing }
 
 
 
 newtype AssociateTeamMemberResult = AssociateTeamMemberResult 
-  { "clientRequestToken" :: NullOrUndefined (ClientRequestToken)
+  { "clientRequestToken" :: Maybe (ClientRequestToken)
   }
 derive instance newtypeAssociateTeamMemberResult :: Newtype AssociateTeamMemberResult _
 derive instance repGenericAssociateTeamMemberResult :: Generic AssociateTeamMemberResult _
@@ -53,12 +52,12 @@ instance encodeAssociateTeamMemberResult :: Encode AssociateTeamMemberResult whe
 
 -- | Constructs AssociateTeamMemberResult from required parameters
 newAssociateTeamMemberResult :: AssociateTeamMemberResult
-newAssociateTeamMemberResult  = AssociateTeamMemberResult { "clientRequestToken": (NullOrUndefined Nothing) }
+newAssociateTeamMemberResult  = AssociateTeamMemberResult { "clientRequestToken": Nothing }
 
 -- | Constructs AssociateTeamMemberResult's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newAssociateTeamMemberResult' :: ( { "clientRequestToken" :: NullOrUndefined (ClientRequestToken) } -> {"clientRequestToken" :: NullOrUndefined (ClientRequestToken) } ) -> AssociateTeamMemberResult
-newAssociateTeamMemberResult'  customize = (AssociateTeamMemberResult <<< customize) { "clientRequestToken": (NullOrUndefined Nothing) }
+newAssociateTeamMemberResult' :: ( { "clientRequestToken" :: Maybe (ClientRequestToken) } -> {"clientRequestToken" :: Maybe (ClientRequestToken) } ) -> AssociateTeamMemberResult
+newAssociateTeamMemberResult'  customize = (AssociateTeamMemberResult <<< customize) { "clientRequestToken": Nothing }
 
 
 
@@ -84,8 +83,8 @@ instance encodeConcurrentModificationException :: Encode ConcurrentModificationE
 newtype CreateProjectRequest = CreateProjectRequest 
   { "name" :: (ProjectName)
   , "id" :: (ProjectId)
-  , "description" :: NullOrUndefined (ProjectDescription)
-  , "clientRequestToken" :: NullOrUndefined (ClientRequestToken)
+  , "description" :: Maybe (ProjectDescription)
+  , "clientRequestToken" :: Maybe (ClientRequestToken)
   }
 derive instance newtypeCreateProjectRequest :: Newtype CreateProjectRequest _
 derive instance repGenericCreateProjectRequest :: Generic CreateProjectRequest _
@@ -95,20 +94,20 @@ instance encodeCreateProjectRequest :: Encode CreateProjectRequest where encode 
 
 -- | Constructs CreateProjectRequest from required parameters
 newCreateProjectRequest :: ProjectId -> ProjectName -> CreateProjectRequest
-newCreateProjectRequest _id _name = CreateProjectRequest { "id": _id, "name": _name, "clientRequestToken": (NullOrUndefined Nothing), "description": (NullOrUndefined Nothing) }
+newCreateProjectRequest _id _name = CreateProjectRequest { "id": _id, "name": _name, "clientRequestToken": Nothing, "description": Nothing }
 
 -- | Constructs CreateProjectRequest's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newCreateProjectRequest' :: ProjectId -> ProjectName -> ( { "name" :: (ProjectName) , "id" :: (ProjectId) , "description" :: NullOrUndefined (ProjectDescription) , "clientRequestToken" :: NullOrUndefined (ClientRequestToken) } -> {"name" :: (ProjectName) , "id" :: (ProjectId) , "description" :: NullOrUndefined (ProjectDescription) , "clientRequestToken" :: NullOrUndefined (ClientRequestToken) } ) -> CreateProjectRequest
-newCreateProjectRequest' _id _name customize = (CreateProjectRequest <<< customize) { "id": _id, "name": _name, "clientRequestToken": (NullOrUndefined Nothing), "description": (NullOrUndefined Nothing) }
+newCreateProjectRequest' :: ProjectId -> ProjectName -> ( { "name" :: (ProjectName) , "id" :: (ProjectId) , "description" :: Maybe (ProjectDescription) , "clientRequestToken" :: Maybe (ClientRequestToken) } -> {"name" :: (ProjectName) , "id" :: (ProjectId) , "description" :: Maybe (ProjectDescription) , "clientRequestToken" :: Maybe (ClientRequestToken) } ) -> CreateProjectRequest
+newCreateProjectRequest' _id _name customize = (CreateProjectRequest <<< customize) { "id": _id, "name": _name, "clientRequestToken": Nothing, "description": Nothing }
 
 
 
 newtype CreateProjectResult = CreateProjectResult 
   { "id" :: (ProjectId)
   , "arn" :: (ProjectArn)
-  , "clientRequestToken" :: NullOrUndefined (ClientRequestToken)
-  , "projectTemplateId" :: NullOrUndefined (ProjectTemplateId)
+  , "clientRequestToken" :: Maybe (ClientRequestToken)
+  , "projectTemplateId" :: Maybe (ProjectTemplateId)
   }
 derive instance newtypeCreateProjectResult :: Newtype CreateProjectResult _
 derive instance repGenericCreateProjectResult :: Generic CreateProjectResult _
@@ -118,12 +117,12 @@ instance encodeCreateProjectResult :: Encode CreateProjectResult where encode = 
 
 -- | Constructs CreateProjectResult from required parameters
 newCreateProjectResult :: ProjectArn -> ProjectId -> CreateProjectResult
-newCreateProjectResult _arn _id = CreateProjectResult { "arn": _arn, "id": _id, "clientRequestToken": (NullOrUndefined Nothing), "projectTemplateId": (NullOrUndefined Nothing) }
+newCreateProjectResult _arn _id = CreateProjectResult { "arn": _arn, "id": _id, "clientRequestToken": Nothing, "projectTemplateId": Nothing }
 
 -- | Constructs CreateProjectResult's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newCreateProjectResult' :: ProjectArn -> ProjectId -> ( { "id" :: (ProjectId) , "arn" :: (ProjectArn) , "clientRequestToken" :: NullOrUndefined (ClientRequestToken) , "projectTemplateId" :: NullOrUndefined (ProjectTemplateId) } -> {"id" :: (ProjectId) , "arn" :: (ProjectArn) , "clientRequestToken" :: NullOrUndefined (ClientRequestToken) , "projectTemplateId" :: NullOrUndefined (ProjectTemplateId) } ) -> CreateProjectResult
-newCreateProjectResult' _arn _id customize = (CreateProjectResult <<< customize) { "arn": _arn, "id": _id, "clientRequestToken": (NullOrUndefined Nothing), "projectTemplateId": (NullOrUndefined Nothing) }
+newCreateProjectResult' :: ProjectArn -> ProjectId -> ( { "id" :: (ProjectId) , "arn" :: (ProjectArn) , "clientRequestToken" :: Maybe (ClientRequestToken) , "projectTemplateId" :: Maybe (ProjectTemplateId) } -> {"id" :: (ProjectId) , "arn" :: (ProjectArn) , "clientRequestToken" :: Maybe (ClientRequestToken) , "projectTemplateId" :: Maybe (ProjectTemplateId) } ) -> CreateProjectResult
+newCreateProjectResult' _arn _id customize = (CreateProjectResult <<< customize) { "arn": _arn, "id": _id, "clientRequestToken": Nothing, "projectTemplateId": Nothing }
 
 
 
@@ -131,7 +130,7 @@ newtype CreateUserProfileRequest = CreateUserProfileRequest
   { "userArn" :: (UserArn)
   , "displayName" :: (UserProfileDisplayName)
   , "emailAddress" :: (Email)
-  , "sshPublicKey" :: NullOrUndefined (SshPublicKey)
+  , "sshPublicKey" :: Maybe (SshPublicKey)
   }
 derive instance newtypeCreateUserProfileRequest :: Newtype CreateUserProfileRequest _
 derive instance repGenericCreateUserProfileRequest :: Generic CreateUserProfileRequest _
@@ -141,22 +140,22 @@ instance encodeCreateUserProfileRequest :: Encode CreateUserProfileRequest where
 
 -- | Constructs CreateUserProfileRequest from required parameters
 newCreateUserProfileRequest :: UserProfileDisplayName -> Email -> UserArn -> CreateUserProfileRequest
-newCreateUserProfileRequest _displayName _emailAddress _userArn = CreateUserProfileRequest { "displayName": _displayName, "emailAddress": _emailAddress, "userArn": _userArn, "sshPublicKey": (NullOrUndefined Nothing) }
+newCreateUserProfileRequest _displayName _emailAddress _userArn = CreateUserProfileRequest { "displayName": _displayName, "emailAddress": _emailAddress, "userArn": _userArn, "sshPublicKey": Nothing }
 
 -- | Constructs CreateUserProfileRequest's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newCreateUserProfileRequest' :: UserProfileDisplayName -> Email -> UserArn -> ( { "userArn" :: (UserArn) , "displayName" :: (UserProfileDisplayName) , "emailAddress" :: (Email) , "sshPublicKey" :: NullOrUndefined (SshPublicKey) } -> {"userArn" :: (UserArn) , "displayName" :: (UserProfileDisplayName) , "emailAddress" :: (Email) , "sshPublicKey" :: NullOrUndefined (SshPublicKey) } ) -> CreateUserProfileRequest
-newCreateUserProfileRequest' _displayName _emailAddress _userArn customize = (CreateUserProfileRequest <<< customize) { "displayName": _displayName, "emailAddress": _emailAddress, "userArn": _userArn, "sshPublicKey": (NullOrUndefined Nothing) }
+newCreateUserProfileRequest' :: UserProfileDisplayName -> Email -> UserArn -> ( { "userArn" :: (UserArn) , "displayName" :: (UserProfileDisplayName) , "emailAddress" :: (Email) , "sshPublicKey" :: Maybe (SshPublicKey) } -> {"userArn" :: (UserArn) , "displayName" :: (UserProfileDisplayName) , "emailAddress" :: (Email) , "sshPublicKey" :: Maybe (SshPublicKey) } ) -> CreateUserProfileRequest
+newCreateUserProfileRequest' _displayName _emailAddress _userArn customize = (CreateUserProfileRequest <<< customize) { "displayName": _displayName, "emailAddress": _emailAddress, "userArn": _userArn, "sshPublicKey": Nothing }
 
 
 
 newtype CreateUserProfileResult = CreateUserProfileResult 
   { "userArn" :: (UserArn)
-  , "displayName" :: NullOrUndefined (UserProfileDisplayName)
-  , "emailAddress" :: NullOrUndefined (Email)
-  , "sshPublicKey" :: NullOrUndefined (SshPublicKey)
-  , "createdTimestamp" :: NullOrUndefined (CreatedTimestamp)
-  , "lastModifiedTimestamp" :: NullOrUndefined (LastModifiedTimestamp)
+  , "displayName" :: Maybe (UserProfileDisplayName)
+  , "emailAddress" :: Maybe (Email)
+  , "sshPublicKey" :: Maybe (SshPublicKey)
+  , "createdTimestamp" :: Maybe (CreatedTimestamp)
+  , "lastModifiedTimestamp" :: Maybe (LastModifiedTimestamp)
   }
 derive instance newtypeCreateUserProfileResult :: Newtype CreateUserProfileResult _
 derive instance repGenericCreateUserProfileResult :: Generic CreateUserProfileResult _
@@ -166,12 +165,12 @@ instance encodeCreateUserProfileResult :: Encode CreateUserProfileResult where e
 
 -- | Constructs CreateUserProfileResult from required parameters
 newCreateUserProfileResult :: UserArn -> CreateUserProfileResult
-newCreateUserProfileResult _userArn = CreateUserProfileResult { "userArn": _userArn, "createdTimestamp": (NullOrUndefined Nothing), "displayName": (NullOrUndefined Nothing), "emailAddress": (NullOrUndefined Nothing), "lastModifiedTimestamp": (NullOrUndefined Nothing), "sshPublicKey": (NullOrUndefined Nothing) }
+newCreateUserProfileResult _userArn = CreateUserProfileResult { "userArn": _userArn, "createdTimestamp": Nothing, "displayName": Nothing, "emailAddress": Nothing, "lastModifiedTimestamp": Nothing, "sshPublicKey": Nothing }
 
 -- | Constructs CreateUserProfileResult's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newCreateUserProfileResult' :: UserArn -> ( { "userArn" :: (UserArn) , "displayName" :: NullOrUndefined (UserProfileDisplayName) , "emailAddress" :: NullOrUndefined (Email) , "sshPublicKey" :: NullOrUndefined (SshPublicKey) , "createdTimestamp" :: NullOrUndefined (CreatedTimestamp) , "lastModifiedTimestamp" :: NullOrUndefined (LastModifiedTimestamp) } -> {"userArn" :: (UserArn) , "displayName" :: NullOrUndefined (UserProfileDisplayName) , "emailAddress" :: NullOrUndefined (Email) , "sshPublicKey" :: NullOrUndefined (SshPublicKey) , "createdTimestamp" :: NullOrUndefined (CreatedTimestamp) , "lastModifiedTimestamp" :: NullOrUndefined (LastModifiedTimestamp) } ) -> CreateUserProfileResult
-newCreateUserProfileResult' _userArn customize = (CreateUserProfileResult <<< customize) { "userArn": _userArn, "createdTimestamp": (NullOrUndefined Nothing), "displayName": (NullOrUndefined Nothing), "emailAddress": (NullOrUndefined Nothing), "lastModifiedTimestamp": (NullOrUndefined Nothing), "sshPublicKey": (NullOrUndefined Nothing) }
+newCreateUserProfileResult' :: UserArn -> ( { "userArn" :: (UserArn) , "displayName" :: Maybe (UserProfileDisplayName) , "emailAddress" :: Maybe (Email) , "sshPublicKey" :: Maybe (SshPublicKey) , "createdTimestamp" :: Maybe (CreatedTimestamp) , "lastModifiedTimestamp" :: Maybe (LastModifiedTimestamp) } -> {"userArn" :: (UserArn) , "displayName" :: Maybe (UserProfileDisplayName) , "emailAddress" :: Maybe (Email) , "sshPublicKey" :: Maybe (SshPublicKey) , "createdTimestamp" :: Maybe (CreatedTimestamp) , "lastModifiedTimestamp" :: Maybe (LastModifiedTimestamp) } ) -> CreateUserProfileResult
+newCreateUserProfileResult' _userArn customize = (CreateUserProfileResult <<< customize) { "userArn": _userArn, "createdTimestamp": Nothing, "displayName": Nothing, "emailAddress": Nothing, "lastModifiedTimestamp": Nothing, "sshPublicKey": Nothing }
 
 
 
@@ -186,8 +185,8 @@ instance encodeCreatedTimestamp :: Encode CreatedTimestamp where encode = generi
 
 newtype DeleteProjectRequest = DeleteProjectRequest 
   { "id" :: (ProjectId)
-  , "clientRequestToken" :: NullOrUndefined (ClientRequestToken)
-  , "deleteStack" :: NullOrUndefined (DeleteStack)
+  , "clientRequestToken" :: Maybe (ClientRequestToken)
+  , "deleteStack" :: Maybe (DeleteStack)
   }
 derive instance newtypeDeleteProjectRequest :: Newtype DeleteProjectRequest _
 derive instance repGenericDeleteProjectRequest :: Generic DeleteProjectRequest _
@@ -197,18 +196,18 @@ instance encodeDeleteProjectRequest :: Encode DeleteProjectRequest where encode 
 
 -- | Constructs DeleteProjectRequest from required parameters
 newDeleteProjectRequest :: ProjectId -> DeleteProjectRequest
-newDeleteProjectRequest _id = DeleteProjectRequest { "id": _id, "clientRequestToken": (NullOrUndefined Nothing), "deleteStack": (NullOrUndefined Nothing) }
+newDeleteProjectRequest _id = DeleteProjectRequest { "id": _id, "clientRequestToken": Nothing, "deleteStack": Nothing }
 
 -- | Constructs DeleteProjectRequest's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newDeleteProjectRequest' :: ProjectId -> ( { "id" :: (ProjectId) , "clientRequestToken" :: NullOrUndefined (ClientRequestToken) , "deleteStack" :: NullOrUndefined (DeleteStack) } -> {"id" :: (ProjectId) , "clientRequestToken" :: NullOrUndefined (ClientRequestToken) , "deleteStack" :: NullOrUndefined (DeleteStack) } ) -> DeleteProjectRequest
-newDeleteProjectRequest' _id customize = (DeleteProjectRequest <<< customize) { "id": _id, "clientRequestToken": (NullOrUndefined Nothing), "deleteStack": (NullOrUndefined Nothing) }
+newDeleteProjectRequest' :: ProjectId -> ( { "id" :: (ProjectId) , "clientRequestToken" :: Maybe (ClientRequestToken) , "deleteStack" :: Maybe (DeleteStack) } -> {"id" :: (ProjectId) , "clientRequestToken" :: Maybe (ClientRequestToken) , "deleteStack" :: Maybe (DeleteStack) } ) -> DeleteProjectRequest
+newDeleteProjectRequest' _id customize = (DeleteProjectRequest <<< customize) { "id": _id, "clientRequestToken": Nothing, "deleteStack": Nothing }
 
 
 
 newtype DeleteProjectResult = DeleteProjectResult 
-  { "stackId" :: NullOrUndefined (StackId)
-  , "projectArn" :: NullOrUndefined (ProjectArn)
+  { "stackId" :: Maybe (StackId)
+  , "projectArn" :: Maybe (ProjectArn)
   }
 derive instance newtypeDeleteProjectResult :: Newtype DeleteProjectResult _
 derive instance repGenericDeleteProjectResult :: Generic DeleteProjectResult _
@@ -218,12 +217,12 @@ instance encodeDeleteProjectResult :: Encode DeleteProjectResult where encode = 
 
 -- | Constructs DeleteProjectResult from required parameters
 newDeleteProjectResult :: DeleteProjectResult
-newDeleteProjectResult  = DeleteProjectResult { "projectArn": (NullOrUndefined Nothing), "stackId": (NullOrUndefined Nothing) }
+newDeleteProjectResult  = DeleteProjectResult { "projectArn": Nothing, "stackId": Nothing }
 
 -- | Constructs DeleteProjectResult's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newDeleteProjectResult' :: ( { "stackId" :: NullOrUndefined (StackId) , "projectArn" :: NullOrUndefined (ProjectArn) } -> {"stackId" :: NullOrUndefined (StackId) , "projectArn" :: NullOrUndefined (ProjectArn) } ) -> DeleteProjectResult
-newDeleteProjectResult'  customize = (DeleteProjectResult <<< customize) { "projectArn": (NullOrUndefined Nothing), "stackId": (NullOrUndefined Nothing) }
+newDeleteProjectResult' :: ( { "stackId" :: Maybe (StackId) , "projectArn" :: Maybe (ProjectArn) } -> {"stackId" :: Maybe (StackId) , "projectArn" :: Maybe (ProjectArn) } ) -> DeleteProjectResult
+newDeleteProjectResult'  customize = (DeleteProjectResult <<< customize) { "projectArn": Nothing, "stackId": Nothing }
 
 
 
@@ -297,14 +296,14 @@ newDescribeProjectRequest' _id customize = (DescribeProjectRequest <<< customize
 
 
 newtype DescribeProjectResult = DescribeProjectResult 
-  { "name" :: NullOrUndefined (ProjectName)
-  , "id" :: NullOrUndefined (ProjectId)
-  , "arn" :: NullOrUndefined (ProjectArn)
-  , "description" :: NullOrUndefined (ProjectDescription)
-  , "clientRequestToken" :: NullOrUndefined (ClientRequestToken)
-  , "createdTimeStamp" :: NullOrUndefined (CreatedTimestamp)
-  , "stackId" :: NullOrUndefined (StackId)
-  , "projectTemplateId" :: NullOrUndefined (ProjectTemplateId)
+  { "name" :: Maybe (ProjectName)
+  , "id" :: Maybe (ProjectId)
+  , "arn" :: Maybe (ProjectArn)
+  , "description" :: Maybe (ProjectDescription)
+  , "clientRequestToken" :: Maybe (ClientRequestToken)
+  , "createdTimeStamp" :: Maybe (CreatedTimestamp)
+  , "stackId" :: Maybe (StackId)
+  , "projectTemplateId" :: Maybe (ProjectTemplateId)
   }
 derive instance newtypeDescribeProjectResult :: Newtype DescribeProjectResult _
 derive instance repGenericDescribeProjectResult :: Generic DescribeProjectResult _
@@ -314,12 +313,12 @@ instance encodeDescribeProjectResult :: Encode DescribeProjectResult where encod
 
 -- | Constructs DescribeProjectResult from required parameters
 newDescribeProjectResult :: DescribeProjectResult
-newDescribeProjectResult  = DescribeProjectResult { "arn": (NullOrUndefined Nothing), "clientRequestToken": (NullOrUndefined Nothing), "createdTimeStamp": (NullOrUndefined Nothing), "description": (NullOrUndefined Nothing), "id": (NullOrUndefined Nothing), "name": (NullOrUndefined Nothing), "projectTemplateId": (NullOrUndefined Nothing), "stackId": (NullOrUndefined Nothing) }
+newDescribeProjectResult  = DescribeProjectResult { "arn": Nothing, "clientRequestToken": Nothing, "createdTimeStamp": Nothing, "description": Nothing, "id": Nothing, "name": Nothing, "projectTemplateId": Nothing, "stackId": Nothing }
 
 -- | Constructs DescribeProjectResult's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newDescribeProjectResult' :: ( { "name" :: NullOrUndefined (ProjectName) , "id" :: NullOrUndefined (ProjectId) , "arn" :: NullOrUndefined (ProjectArn) , "description" :: NullOrUndefined (ProjectDescription) , "clientRequestToken" :: NullOrUndefined (ClientRequestToken) , "createdTimeStamp" :: NullOrUndefined (CreatedTimestamp) , "stackId" :: NullOrUndefined (StackId) , "projectTemplateId" :: NullOrUndefined (ProjectTemplateId) } -> {"name" :: NullOrUndefined (ProjectName) , "id" :: NullOrUndefined (ProjectId) , "arn" :: NullOrUndefined (ProjectArn) , "description" :: NullOrUndefined (ProjectDescription) , "clientRequestToken" :: NullOrUndefined (ClientRequestToken) , "createdTimeStamp" :: NullOrUndefined (CreatedTimestamp) , "stackId" :: NullOrUndefined (StackId) , "projectTemplateId" :: NullOrUndefined (ProjectTemplateId) } ) -> DescribeProjectResult
-newDescribeProjectResult'  customize = (DescribeProjectResult <<< customize) { "arn": (NullOrUndefined Nothing), "clientRequestToken": (NullOrUndefined Nothing), "createdTimeStamp": (NullOrUndefined Nothing), "description": (NullOrUndefined Nothing), "id": (NullOrUndefined Nothing), "name": (NullOrUndefined Nothing), "projectTemplateId": (NullOrUndefined Nothing), "stackId": (NullOrUndefined Nothing) }
+newDescribeProjectResult' :: ( { "name" :: Maybe (ProjectName) , "id" :: Maybe (ProjectId) , "arn" :: Maybe (ProjectArn) , "description" :: Maybe (ProjectDescription) , "clientRequestToken" :: Maybe (ClientRequestToken) , "createdTimeStamp" :: Maybe (CreatedTimestamp) , "stackId" :: Maybe (StackId) , "projectTemplateId" :: Maybe (ProjectTemplateId) } -> {"name" :: Maybe (ProjectName) , "id" :: Maybe (ProjectId) , "arn" :: Maybe (ProjectArn) , "description" :: Maybe (ProjectDescription) , "clientRequestToken" :: Maybe (ClientRequestToken) , "createdTimeStamp" :: Maybe (CreatedTimestamp) , "stackId" :: Maybe (StackId) , "projectTemplateId" :: Maybe (ProjectTemplateId) } ) -> DescribeProjectResult
+newDescribeProjectResult'  customize = (DescribeProjectResult <<< customize) { "arn": Nothing, "clientRequestToken": Nothing, "createdTimeStamp": Nothing, "description": Nothing, "id": Nothing, "name": Nothing, "projectTemplateId": Nothing, "stackId": Nothing }
 
 
 
@@ -345,9 +344,9 @@ newDescribeUserProfileRequest' _userArn customize = (DescribeUserProfileRequest 
 
 newtype DescribeUserProfileResult = DescribeUserProfileResult 
   { "userArn" :: (UserArn)
-  , "displayName" :: NullOrUndefined (UserProfileDisplayName)
-  , "emailAddress" :: NullOrUndefined (Email)
-  , "sshPublicKey" :: NullOrUndefined (SshPublicKey)
+  , "displayName" :: Maybe (UserProfileDisplayName)
+  , "emailAddress" :: Maybe (Email)
+  , "sshPublicKey" :: Maybe (SshPublicKey)
   , "createdTimestamp" :: (CreatedTimestamp)
   , "lastModifiedTimestamp" :: (LastModifiedTimestamp)
   }
@@ -359,12 +358,12 @@ instance encodeDescribeUserProfileResult :: Encode DescribeUserProfileResult whe
 
 -- | Constructs DescribeUserProfileResult from required parameters
 newDescribeUserProfileResult :: CreatedTimestamp -> LastModifiedTimestamp -> UserArn -> DescribeUserProfileResult
-newDescribeUserProfileResult _createdTimestamp _lastModifiedTimestamp _userArn = DescribeUserProfileResult { "createdTimestamp": _createdTimestamp, "lastModifiedTimestamp": _lastModifiedTimestamp, "userArn": _userArn, "displayName": (NullOrUndefined Nothing), "emailAddress": (NullOrUndefined Nothing), "sshPublicKey": (NullOrUndefined Nothing) }
+newDescribeUserProfileResult _createdTimestamp _lastModifiedTimestamp _userArn = DescribeUserProfileResult { "createdTimestamp": _createdTimestamp, "lastModifiedTimestamp": _lastModifiedTimestamp, "userArn": _userArn, "displayName": Nothing, "emailAddress": Nothing, "sshPublicKey": Nothing }
 
 -- | Constructs DescribeUserProfileResult's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newDescribeUserProfileResult' :: CreatedTimestamp -> LastModifiedTimestamp -> UserArn -> ( { "userArn" :: (UserArn) , "displayName" :: NullOrUndefined (UserProfileDisplayName) , "emailAddress" :: NullOrUndefined (Email) , "sshPublicKey" :: NullOrUndefined (SshPublicKey) , "createdTimestamp" :: (CreatedTimestamp) , "lastModifiedTimestamp" :: (LastModifiedTimestamp) } -> {"userArn" :: (UserArn) , "displayName" :: NullOrUndefined (UserProfileDisplayName) , "emailAddress" :: NullOrUndefined (Email) , "sshPublicKey" :: NullOrUndefined (SshPublicKey) , "createdTimestamp" :: (CreatedTimestamp) , "lastModifiedTimestamp" :: (LastModifiedTimestamp) } ) -> DescribeUserProfileResult
-newDescribeUserProfileResult' _createdTimestamp _lastModifiedTimestamp _userArn customize = (DescribeUserProfileResult <<< customize) { "createdTimestamp": _createdTimestamp, "lastModifiedTimestamp": _lastModifiedTimestamp, "userArn": _userArn, "displayName": (NullOrUndefined Nothing), "emailAddress": (NullOrUndefined Nothing), "sshPublicKey": (NullOrUndefined Nothing) }
+newDescribeUserProfileResult' :: CreatedTimestamp -> LastModifiedTimestamp -> UserArn -> ( { "userArn" :: (UserArn) , "displayName" :: Maybe (UserProfileDisplayName) , "emailAddress" :: Maybe (Email) , "sshPublicKey" :: Maybe (SshPublicKey) , "createdTimestamp" :: (CreatedTimestamp) , "lastModifiedTimestamp" :: (LastModifiedTimestamp) } -> {"userArn" :: (UserArn) , "displayName" :: Maybe (UserProfileDisplayName) , "emailAddress" :: Maybe (Email) , "sshPublicKey" :: Maybe (SshPublicKey) , "createdTimestamp" :: (CreatedTimestamp) , "lastModifiedTimestamp" :: (LastModifiedTimestamp) } ) -> DescribeUserProfileResult
+newDescribeUserProfileResult' _createdTimestamp _lastModifiedTimestamp _userArn customize = (DescribeUserProfileResult <<< customize) { "createdTimestamp": _createdTimestamp, "lastModifiedTimestamp": _lastModifiedTimestamp, "userArn": _userArn, "displayName": Nothing, "emailAddress": Nothing, "sshPublicKey": Nothing }
 
 
 
@@ -447,8 +446,8 @@ instance encodeLimitExceededException :: Encode LimitExceededException where enc
 
 
 newtype ListProjectsRequest = ListProjectsRequest 
-  { "nextToken" :: NullOrUndefined (PaginationToken)
-  , "maxResults" :: NullOrUndefined (MaxResults)
+  { "nextToken" :: Maybe (PaginationToken)
+  , "maxResults" :: Maybe (MaxResults)
   }
 derive instance newtypeListProjectsRequest :: Newtype ListProjectsRequest _
 derive instance repGenericListProjectsRequest :: Generic ListProjectsRequest _
@@ -458,18 +457,18 @@ instance encodeListProjectsRequest :: Encode ListProjectsRequest where encode = 
 
 -- | Constructs ListProjectsRequest from required parameters
 newListProjectsRequest :: ListProjectsRequest
-newListProjectsRequest  = ListProjectsRequest { "maxResults": (NullOrUndefined Nothing), "nextToken": (NullOrUndefined Nothing) }
+newListProjectsRequest  = ListProjectsRequest { "maxResults": Nothing, "nextToken": Nothing }
 
 -- | Constructs ListProjectsRequest's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newListProjectsRequest' :: ( { "nextToken" :: NullOrUndefined (PaginationToken) , "maxResults" :: NullOrUndefined (MaxResults) } -> {"nextToken" :: NullOrUndefined (PaginationToken) , "maxResults" :: NullOrUndefined (MaxResults) } ) -> ListProjectsRequest
-newListProjectsRequest'  customize = (ListProjectsRequest <<< customize) { "maxResults": (NullOrUndefined Nothing), "nextToken": (NullOrUndefined Nothing) }
+newListProjectsRequest' :: ( { "nextToken" :: Maybe (PaginationToken) , "maxResults" :: Maybe (MaxResults) } -> {"nextToken" :: Maybe (PaginationToken) , "maxResults" :: Maybe (MaxResults) } ) -> ListProjectsRequest
+newListProjectsRequest'  customize = (ListProjectsRequest <<< customize) { "maxResults": Nothing, "nextToken": Nothing }
 
 
 
 newtype ListProjectsResult = ListProjectsResult 
   { "projects" :: (ProjectsList)
-  , "nextToken" :: NullOrUndefined (PaginationToken)
+  , "nextToken" :: Maybe (PaginationToken)
   }
 derive instance newtypeListProjectsResult :: Newtype ListProjectsResult _
 derive instance repGenericListProjectsResult :: Generic ListProjectsResult _
@@ -479,19 +478,19 @@ instance encodeListProjectsResult :: Encode ListProjectsResult where encode = ge
 
 -- | Constructs ListProjectsResult from required parameters
 newListProjectsResult :: ProjectsList -> ListProjectsResult
-newListProjectsResult _projects = ListProjectsResult { "projects": _projects, "nextToken": (NullOrUndefined Nothing) }
+newListProjectsResult _projects = ListProjectsResult { "projects": _projects, "nextToken": Nothing }
 
 -- | Constructs ListProjectsResult's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newListProjectsResult' :: ProjectsList -> ( { "projects" :: (ProjectsList) , "nextToken" :: NullOrUndefined (PaginationToken) } -> {"projects" :: (ProjectsList) , "nextToken" :: NullOrUndefined (PaginationToken) } ) -> ListProjectsResult
-newListProjectsResult' _projects customize = (ListProjectsResult <<< customize) { "projects": _projects, "nextToken": (NullOrUndefined Nothing) }
+newListProjectsResult' :: ProjectsList -> ( { "projects" :: (ProjectsList) , "nextToken" :: Maybe (PaginationToken) } -> {"projects" :: (ProjectsList) , "nextToken" :: Maybe (PaginationToken) } ) -> ListProjectsResult
+newListProjectsResult' _projects customize = (ListProjectsResult <<< customize) { "projects": _projects, "nextToken": Nothing }
 
 
 
 newtype ListResourcesRequest = ListResourcesRequest 
   { "projectId" :: (ProjectId)
-  , "nextToken" :: NullOrUndefined (PaginationToken)
-  , "maxResults" :: NullOrUndefined (MaxResults)
+  , "nextToken" :: Maybe (PaginationToken)
+  , "maxResults" :: Maybe (MaxResults)
   }
 derive instance newtypeListResourcesRequest :: Newtype ListResourcesRequest _
 derive instance repGenericListResourcesRequest :: Generic ListResourcesRequest _
@@ -501,18 +500,18 @@ instance encodeListResourcesRequest :: Encode ListResourcesRequest where encode 
 
 -- | Constructs ListResourcesRequest from required parameters
 newListResourcesRequest :: ProjectId -> ListResourcesRequest
-newListResourcesRequest _projectId = ListResourcesRequest { "projectId": _projectId, "maxResults": (NullOrUndefined Nothing), "nextToken": (NullOrUndefined Nothing) }
+newListResourcesRequest _projectId = ListResourcesRequest { "projectId": _projectId, "maxResults": Nothing, "nextToken": Nothing }
 
 -- | Constructs ListResourcesRequest's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newListResourcesRequest' :: ProjectId -> ( { "projectId" :: (ProjectId) , "nextToken" :: NullOrUndefined (PaginationToken) , "maxResults" :: NullOrUndefined (MaxResults) } -> {"projectId" :: (ProjectId) , "nextToken" :: NullOrUndefined (PaginationToken) , "maxResults" :: NullOrUndefined (MaxResults) } ) -> ListResourcesRequest
-newListResourcesRequest' _projectId customize = (ListResourcesRequest <<< customize) { "projectId": _projectId, "maxResults": (NullOrUndefined Nothing), "nextToken": (NullOrUndefined Nothing) }
+newListResourcesRequest' :: ProjectId -> ( { "projectId" :: (ProjectId) , "nextToken" :: Maybe (PaginationToken) , "maxResults" :: Maybe (MaxResults) } -> {"projectId" :: (ProjectId) , "nextToken" :: Maybe (PaginationToken) , "maxResults" :: Maybe (MaxResults) } ) -> ListResourcesRequest
+newListResourcesRequest' _projectId customize = (ListResourcesRequest <<< customize) { "projectId": _projectId, "maxResults": Nothing, "nextToken": Nothing }
 
 
 
 newtype ListResourcesResult = ListResourcesResult 
-  { "resources" :: NullOrUndefined (ResourcesResult)
-  , "nextToken" :: NullOrUndefined (PaginationToken)
+  { "resources" :: Maybe (ResourcesResult)
+  , "nextToken" :: Maybe (PaginationToken)
   }
 derive instance newtypeListResourcesResult :: Newtype ListResourcesResult _
 derive instance repGenericListResourcesResult :: Generic ListResourcesResult _
@@ -522,19 +521,19 @@ instance encodeListResourcesResult :: Encode ListResourcesResult where encode = 
 
 -- | Constructs ListResourcesResult from required parameters
 newListResourcesResult :: ListResourcesResult
-newListResourcesResult  = ListResourcesResult { "nextToken": (NullOrUndefined Nothing), "resources": (NullOrUndefined Nothing) }
+newListResourcesResult  = ListResourcesResult { "nextToken": Nothing, "resources": Nothing }
 
 -- | Constructs ListResourcesResult's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newListResourcesResult' :: ( { "resources" :: NullOrUndefined (ResourcesResult) , "nextToken" :: NullOrUndefined (PaginationToken) } -> {"resources" :: NullOrUndefined (ResourcesResult) , "nextToken" :: NullOrUndefined (PaginationToken) } ) -> ListResourcesResult
-newListResourcesResult'  customize = (ListResourcesResult <<< customize) { "nextToken": (NullOrUndefined Nothing), "resources": (NullOrUndefined Nothing) }
+newListResourcesResult' :: ( { "resources" :: Maybe (ResourcesResult) , "nextToken" :: Maybe (PaginationToken) } -> {"resources" :: Maybe (ResourcesResult) , "nextToken" :: Maybe (PaginationToken) } ) -> ListResourcesResult
+newListResourcesResult'  customize = (ListResourcesResult <<< customize) { "nextToken": Nothing, "resources": Nothing }
 
 
 
 newtype ListTagsForProjectRequest = ListTagsForProjectRequest 
   { "id" :: (ProjectId)
-  , "nextToken" :: NullOrUndefined (PaginationToken)
-  , "maxResults" :: NullOrUndefined (MaxResults)
+  , "nextToken" :: Maybe (PaginationToken)
+  , "maxResults" :: Maybe (MaxResults)
   }
 derive instance newtypeListTagsForProjectRequest :: Newtype ListTagsForProjectRequest _
 derive instance repGenericListTagsForProjectRequest :: Generic ListTagsForProjectRequest _
@@ -544,18 +543,18 @@ instance encodeListTagsForProjectRequest :: Encode ListTagsForProjectRequest whe
 
 -- | Constructs ListTagsForProjectRequest from required parameters
 newListTagsForProjectRequest :: ProjectId -> ListTagsForProjectRequest
-newListTagsForProjectRequest _id = ListTagsForProjectRequest { "id": _id, "maxResults": (NullOrUndefined Nothing), "nextToken": (NullOrUndefined Nothing) }
+newListTagsForProjectRequest _id = ListTagsForProjectRequest { "id": _id, "maxResults": Nothing, "nextToken": Nothing }
 
 -- | Constructs ListTagsForProjectRequest's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newListTagsForProjectRequest' :: ProjectId -> ( { "id" :: (ProjectId) , "nextToken" :: NullOrUndefined (PaginationToken) , "maxResults" :: NullOrUndefined (MaxResults) } -> {"id" :: (ProjectId) , "nextToken" :: NullOrUndefined (PaginationToken) , "maxResults" :: NullOrUndefined (MaxResults) } ) -> ListTagsForProjectRequest
-newListTagsForProjectRequest' _id customize = (ListTagsForProjectRequest <<< customize) { "id": _id, "maxResults": (NullOrUndefined Nothing), "nextToken": (NullOrUndefined Nothing) }
+newListTagsForProjectRequest' :: ProjectId -> ( { "id" :: (ProjectId) , "nextToken" :: Maybe (PaginationToken) , "maxResults" :: Maybe (MaxResults) } -> {"id" :: (ProjectId) , "nextToken" :: Maybe (PaginationToken) , "maxResults" :: Maybe (MaxResults) } ) -> ListTagsForProjectRequest
+newListTagsForProjectRequest' _id customize = (ListTagsForProjectRequest <<< customize) { "id": _id, "maxResults": Nothing, "nextToken": Nothing }
 
 
 
 newtype ListTagsForProjectResult = ListTagsForProjectResult 
-  { "tags" :: NullOrUndefined (Tags)
-  , "nextToken" :: NullOrUndefined (PaginationToken)
+  { "tags" :: Maybe (Tags)
+  , "nextToken" :: Maybe (PaginationToken)
   }
 derive instance newtypeListTagsForProjectResult :: Newtype ListTagsForProjectResult _
 derive instance repGenericListTagsForProjectResult :: Generic ListTagsForProjectResult _
@@ -565,19 +564,19 @@ instance encodeListTagsForProjectResult :: Encode ListTagsForProjectResult where
 
 -- | Constructs ListTagsForProjectResult from required parameters
 newListTagsForProjectResult :: ListTagsForProjectResult
-newListTagsForProjectResult  = ListTagsForProjectResult { "nextToken": (NullOrUndefined Nothing), "tags": (NullOrUndefined Nothing) }
+newListTagsForProjectResult  = ListTagsForProjectResult { "nextToken": Nothing, "tags": Nothing }
 
 -- | Constructs ListTagsForProjectResult's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newListTagsForProjectResult' :: ( { "tags" :: NullOrUndefined (Tags) , "nextToken" :: NullOrUndefined (PaginationToken) } -> {"tags" :: NullOrUndefined (Tags) , "nextToken" :: NullOrUndefined (PaginationToken) } ) -> ListTagsForProjectResult
-newListTagsForProjectResult'  customize = (ListTagsForProjectResult <<< customize) { "nextToken": (NullOrUndefined Nothing), "tags": (NullOrUndefined Nothing) }
+newListTagsForProjectResult' :: ( { "tags" :: Maybe (Tags) , "nextToken" :: Maybe (PaginationToken) } -> {"tags" :: Maybe (Tags) , "nextToken" :: Maybe (PaginationToken) } ) -> ListTagsForProjectResult
+newListTagsForProjectResult'  customize = (ListTagsForProjectResult <<< customize) { "nextToken": Nothing, "tags": Nothing }
 
 
 
 newtype ListTeamMembersRequest = ListTeamMembersRequest 
   { "projectId" :: (ProjectId)
-  , "nextToken" :: NullOrUndefined (PaginationToken)
-  , "maxResults" :: NullOrUndefined (MaxResults)
+  , "nextToken" :: Maybe (PaginationToken)
+  , "maxResults" :: Maybe (MaxResults)
   }
 derive instance newtypeListTeamMembersRequest :: Newtype ListTeamMembersRequest _
 derive instance repGenericListTeamMembersRequest :: Generic ListTeamMembersRequest _
@@ -587,18 +586,18 @@ instance encodeListTeamMembersRequest :: Encode ListTeamMembersRequest where enc
 
 -- | Constructs ListTeamMembersRequest from required parameters
 newListTeamMembersRequest :: ProjectId -> ListTeamMembersRequest
-newListTeamMembersRequest _projectId = ListTeamMembersRequest { "projectId": _projectId, "maxResults": (NullOrUndefined Nothing), "nextToken": (NullOrUndefined Nothing) }
+newListTeamMembersRequest _projectId = ListTeamMembersRequest { "projectId": _projectId, "maxResults": Nothing, "nextToken": Nothing }
 
 -- | Constructs ListTeamMembersRequest's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newListTeamMembersRequest' :: ProjectId -> ( { "projectId" :: (ProjectId) , "nextToken" :: NullOrUndefined (PaginationToken) , "maxResults" :: NullOrUndefined (MaxResults) } -> {"projectId" :: (ProjectId) , "nextToken" :: NullOrUndefined (PaginationToken) , "maxResults" :: NullOrUndefined (MaxResults) } ) -> ListTeamMembersRequest
-newListTeamMembersRequest' _projectId customize = (ListTeamMembersRequest <<< customize) { "projectId": _projectId, "maxResults": (NullOrUndefined Nothing), "nextToken": (NullOrUndefined Nothing) }
+newListTeamMembersRequest' :: ProjectId -> ( { "projectId" :: (ProjectId) , "nextToken" :: Maybe (PaginationToken) , "maxResults" :: Maybe (MaxResults) } -> {"projectId" :: (ProjectId) , "nextToken" :: Maybe (PaginationToken) , "maxResults" :: Maybe (MaxResults) } ) -> ListTeamMembersRequest
+newListTeamMembersRequest' _projectId customize = (ListTeamMembersRequest <<< customize) { "projectId": _projectId, "maxResults": Nothing, "nextToken": Nothing }
 
 
 
 newtype ListTeamMembersResult = ListTeamMembersResult 
   { "teamMembers" :: (TeamMemberResult)
-  , "nextToken" :: NullOrUndefined (PaginationToken)
+  , "nextToken" :: Maybe (PaginationToken)
   }
 derive instance newtypeListTeamMembersResult :: Newtype ListTeamMembersResult _
 derive instance repGenericListTeamMembersResult :: Generic ListTeamMembersResult _
@@ -608,18 +607,18 @@ instance encodeListTeamMembersResult :: Encode ListTeamMembersResult where encod
 
 -- | Constructs ListTeamMembersResult from required parameters
 newListTeamMembersResult :: TeamMemberResult -> ListTeamMembersResult
-newListTeamMembersResult _teamMembers = ListTeamMembersResult { "teamMembers": _teamMembers, "nextToken": (NullOrUndefined Nothing) }
+newListTeamMembersResult _teamMembers = ListTeamMembersResult { "teamMembers": _teamMembers, "nextToken": Nothing }
 
 -- | Constructs ListTeamMembersResult's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newListTeamMembersResult' :: TeamMemberResult -> ( { "teamMembers" :: (TeamMemberResult) , "nextToken" :: NullOrUndefined (PaginationToken) } -> {"teamMembers" :: (TeamMemberResult) , "nextToken" :: NullOrUndefined (PaginationToken) } ) -> ListTeamMembersResult
-newListTeamMembersResult' _teamMembers customize = (ListTeamMembersResult <<< customize) { "teamMembers": _teamMembers, "nextToken": (NullOrUndefined Nothing) }
+newListTeamMembersResult' :: TeamMemberResult -> ( { "teamMembers" :: (TeamMemberResult) , "nextToken" :: Maybe (PaginationToken) } -> {"teamMembers" :: (TeamMemberResult) , "nextToken" :: Maybe (PaginationToken) } ) -> ListTeamMembersResult
+newListTeamMembersResult' _teamMembers customize = (ListTeamMembersResult <<< customize) { "teamMembers": _teamMembers, "nextToken": Nothing }
 
 
 
 newtype ListUserProfilesRequest = ListUserProfilesRequest 
-  { "nextToken" :: NullOrUndefined (PaginationToken)
-  , "maxResults" :: NullOrUndefined (MaxResults)
+  { "nextToken" :: Maybe (PaginationToken)
+  , "maxResults" :: Maybe (MaxResults)
   }
 derive instance newtypeListUserProfilesRequest :: Newtype ListUserProfilesRequest _
 derive instance repGenericListUserProfilesRequest :: Generic ListUserProfilesRequest _
@@ -629,18 +628,18 @@ instance encodeListUserProfilesRequest :: Encode ListUserProfilesRequest where e
 
 -- | Constructs ListUserProfilesRequest from required parameters
 newListUserProfilesRequest :: ListUserProfilesRequest
-newListUserProfilesRequest  = ListUserProfilesRequest { "maxResults": (NullOrUndefined Nothing), "nextToken": (NullOrUndefined Nothing) }
+newListUserProfilesRequest  = ListUserProfilesRequest { "maxResults": Nothing, "nextToken": Nothing }
 
 -- | Constructs ListUserProfilesRequest's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newListUserProfilesRequest' :: ( { "nextToken" :: NullOrUndefined (PaginationToken) , "maxResults" :: NullOrUndefined (MaxResults) } -> {"nextToken" :: NullOrUndefined (PaginationToken) , "maxResults" :: NullOrUndefined (MaxResults) } ) -> ListUserProfilesRequest
-newListUserProfilesRequest'  customize = (ListUserProfilesRequest <<< customize) { "maxResults": (NullOrUndefined Nothing), "nextToken": (NullOrUndefined Nothing) }
+newListUserProfilesRequest' :: ( { "nextToken" :: Maybe (PaginationToken) , "maxResults" :: Maybe (MaxResults) } -> {"nextToken" :: Maybe (PaginationToken) , "maxResults" :: Maybe (MaxResults) } ) -> ListUserProfilesRequest
+newListUserProfilesRequest'  customize = (ListUserProfilesRequest <<< customize) { "maxResults": Nothing, "nextToken": Nothing }
 
 
 
 newtype ListUserProfilesResult = ListUserProfilesResult 
   { "userProfiles" :: (UserProfilesList)
-  , "nextToken" :: NullOrUndefined (PaginationToken)
+  , "nextToken" :: Maybe (PaginationToken)
   }
 derive instance newtypeListUserProfilesResult :: Newtype ListUserProfilesResult _
 derive instance repGenericListUserProfilesResult :: Generic ListUserProfilesResult _
@@ -650,12 +649,12 @@ instance encodeListUserProfilesResult :: Encode ListUserProfilesResult where enc
 
 -- | Constructs ListUserProfilesResult from required parameters
 newListUserProfilesResult :: UserProfilesList -> ListUserProfilesResult
-newListUserProfilesResult _userProfiles = ListUserProfilesResult { "userProfiles": _userProfiles, "nextToken": (NullOrUndefined Nothing) }
+newListUserProfilesResult _userProfiles = ListUserProfilesResult { "userProfiles": _userProfiles, "nextToken": Nothing }
 
 -- | Constructs ListUserProfilesResult's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newListUserProfilesResult' :: UserProfilesList -> ( { "userProfiles" :: (UserProfilesList) , "nextToken" :: NullOrUndefined (PaginationToken) } -> {"userProfiles" :: (UserProfilesList) , "nextToken" :: NullOrUndefined (PaginationToken) } ) -> ListUserProfilesResult
-newListUserProfilesResult' _userProfiles customize = (ListUserProfilesResult <<< customize) { "userProfiles": _userProfiles, "nextToken": (NullOrUndefined Nothing) }
+newListUserProfilesResult' :: UserProfilesList -> ( { "userProfiles" :: (UserProfilesList) , "nextToken" :: Maybe (PaginationToken) } -> {"userProfiles" :: (UserProfilesList) , "nextToken" :: Maybe (PaginationToken) } ) -> ListUserProfilesResult
+newListUserProfilesResult' _userProfiles customize = (ListUserProfilesResult <<< customize) { "userProfiles": _userProfiles, "nextToken": Nothing }
 
 
 
@@ -755,8 +754,8 @@ instance encodeProjectNotFoundException :: Encode ProjectNotFoundException where
 
 -- | <p>Information about the metadata for a project.</p>
 newtype ProjectSummary = ProjectSummary 
-  { "projectId" :: NullOrUndefined (ProjectId)
-  , "projectArn" :: NullOrUndefined (ProjectArn)
+  { "projectId" :: Maybe (ProjectId)
+  , "projectArn" :: Maybe (ProjectArn)
   }
 derive instance newtypeProjectSummary :: Newtype ProjectSummary _
 derive instance repGenericProjectSummary :: Generic ProjectSummary _
@@ -766,12 +765,12 @@ instance encodeProjectSummary :: Encode ProjectSummary where encode = genericEnc
 
 -- | Constructs ProjectSummary from required parameters
 newProjectSummary :: ProjectSummary
-newProjectSummary  = ProjectSummary { "projectArn": (NullOrUndefined Nothing), "projectId": (NullOrUndefined Nothing) }
+newProjectSummary  = ProjectSummary { "projectArn": Nothing, "projectId": Nothing }
 
 -- | Constructs ProjectSummary's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newProjectSummary' :: ( { "projectId" :: NullOrUndefined (ProjectId) , "projectArn" :: NullOrUndefined (ProjectArn) } -> {"projectId" :: NullOrUndefined (ProjectId) , "projectArn" :: NullOrUndefined (ProjectArn) } ) -> ProjectSummary
-newProjectSummary'  customize = (ProjectSummary <<< customize) { "projectArn": (NullOrUndefined Nothing), "projectId": (NullOrUndefined Nothing) }
+newProjectSummary' :: ( { "projectId" :: Maybe (ProjectId) , "projectArn" :: Maybe (ProjectArn) } -> {"projectId" :: Maybe (ProjectId) , "projectArn" :: Maybe (ProjectArn) } ) -> ProjectSummary
+newProjectSummary'  customize = (ProjectSummary <<< customize) { "projectArn": Nothing, "projectId": Nothing }
 
 
 
@@ -908,7 +907,7 @@ newTagProjectRequest' _id _tags customize = (TagProjectRequest <<< customize) { 
 
 
 newtype TagProjectResult = TagProjectResult 
-  { "tags" :: NullOrUndefined (Tags)
+  { "tags" :: Maybe (Tags)
   }
 derive instance newtypeTagProjectResult :: Newtype TagProjectResult _
 derive instance repGenericTagProjectResult :: Generic TagProjectResult _
@@ -918,12 +917,12 @@ instance encodeTagProjectResult :: Encode TagProjectResult where encode = generi
 
 -- | Constructs TagProjectResult from required parameters
 newTagProjectResult :: TagProjectResult
-newTagProjectResult  = TagProjectResult { "tags": (NullOrUndefined Nothing) }
+newTagProjectResult  = TagProjectResult { "tags": Nothing }
 
 -- | Constructs TagProjectResult's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newTagProjectResult' :: ( { "tags" :: NullOrUndefined (Tags) } -> {"tags" :: NullOrUndefined (Tags) } ) -> TagProjectResult
-newTagProjectResult'  customize = (TagProjectResult <<< customize) { "tags": (NullOrUndefined Nothing) }
+newTagProjectResult' :: ( { "tags" :: Maybe (Tags) } -> {"tags" :: Maybe (Tags) } ) -> TagProjectResult
+newTagProjectResult'  customize = (TagProjectResult <<< customize) { "tags": Nothing }
 
 
 
@@ -949,7 +948,7 @@ instance encodeTags :: Encode Tags where encode = genericEncode options
 newtype TeamMember = TeamMember 
   { "userArn" :: (UserArn)
   , "projectRole" :: (Role)
-  , "remoteAccessAllowed" :: NullOrUndefined (RemoteAccessAllowed)
+  , "remoteAccessAllowed" :: Maybe (RemoteAccessAllowed)
   }
 derive instance newtypeTeamMember :: Newtype TeamMember _
 derive instance repGenericTeamMember :: Generic TeamMember _
@@ -959,12 +958,12 @@ instance encodeTeamMember :: Encode TeamMember where encode = genericEncode opti
 
 -- | Constructs TeamMember from required parameters
 newTeamMember :: Role -> UserArn -> TeamMember
-newTeamMember _projectRole _userArn = TeamMember { "projectRole": _projectRole, "userArn": _userArn, "remoteAccessAllowed": (NullOrUndefined Nothing) }
+newTeamMember _projectRole _userArn = TeamMember { "projectRole": _projectRole, "userArn": _userArn, "remoteAccessAllowed": Nothing }
 
 -- | Constructs TeamMember's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newTeamMember' :: Role -> UserArn -> ( { "userArn" :: (UserArn) , "projectRole" :: (Role) , "remoteAccessAllowed" :: NullOrUndefined (RemoteAccessAllowed) } -> {"userArn" :: (UserArn) , "projectRole" :: (Role) , "remoteAccessAllowed" :: NullOrUndefined (RemoteAccessAllowed) } ) -> TeamMember
-newTeamMember' _projectRole _userArn customize = (TeamMember <<< customize) { "projectRole": _projectRole, "userArn": _userArn, "remoteAccessAllowed": (NullOrUndefined Nothing) }
+newTeamMember' :: Role -> UserArn -> ( { "userArn" :: (UserArn) , "projectRole" :: (Role) , "remoteAccessAllowed" :: Maybe (RemoteAccessAllowed) } -> {"userArn" :: (UserArn) , "projectRole" :: (Role) , "remoteAccessAllowed" :: Maybe (RemoteAccessAllowed) } ) -> TeamMember
+newTeamMember' _projectRole _userArn customize = (TeamMember <<< customize) { "projectRole": _projectRole, "userArn": _userArn, "remoteAccessAllowed": Nothing }
 
 
 
@@ -1029,8 +1028,8 @@ instance encodeUntagProjectResult :: Encode UntagProjectResult where encode = ge
 
 newtype UpdateProjectRequest = UpdateProjectRequest 
   { "id" :: (ProjectId)
-  , "name" :: NullOrUndefined (ProjectName)
-  , "description" :: NullOrUndefined (ProjectDescription)
+  , "name" :: Maybe (ProjectName)
+  , "description" :: Maybe (ProjectDescription)
   }
 derive instance newtypeUpdateProjectRequest :: Newtype UpdateProjectRequest _
 derive instance repGenericUpdateProjectRequest :: Generic UpdateProjectRequest _
@@ -1040,12 +1039,12 @@ instance encodeUpdateProjectRequest :: Encode UpdateProjectRequest where encode 
 
 -- | Constructs UpdateProjectRequest from required parameters
 newUpdateProjectRequest :: ProjectId -> UpdateProjectRequest
-newUpdateProjectRequest _id = UpdateProjectRequest { "id": _id, "description": (NullOrUndefined Nothing), "name": (NullOrUndefined Nothing) }
+newUpdateProjectRequest _id = UpdateProjectRequest { "id": _id, "description": Nothing, "name": Nothing }
 
 -- | Constructs UpdateProjectRequest's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newUpdateProjectRequest' :: ProjectId -> ( { "id" :: (ProjectId) , "name" :: NullOrUndefined (ProjectName) , "description" :: NullOrUndefined (ProjectDescription) } -> {"id" :: (ProjectId) , "name" :: NullOrUndefined (ProjectName) , "description" :: NullOrUndefined (ProjectDescription) } ) -> UpdateProjectRequest
-newUpdateProjectRequest' _id customize = (UpdateProjectRequest <<< customize) { "id": _id, "description": (NullOrUndefined Nothing), "name": (NullOrUndefined Nothing) }
+newUpdateProjectRequest' :: ProjectId -> ( { "id" :: (ProjectId) , "name" :: Maybe (ProjectName) , "description" :: Maybe (ProjectDescription) } -> {"id" :: (ProjectId) , "name" :: Maybe (ProjectName) , "description" :: Maybe (ProjectDescription) } ) -> UpdateProjectRequest
+newUpdateProjectRequest' _id customize = (UpdateProjectRequest <<< customize) { "id": _id, "description": Nothing, "name": Nothing }
 
 
 
@@ -1061,8 +1060,8 @@ instance encodeUpdateProjectResult :: Encode UpdateProjectResult where encode = 
 newtype UpdateTeamMemberRequest = UpdateTeamMemberRequest 
   { "projectId" :: (ProjectId)
   , "userArn" :: (UserArn)
-  , "projectRole" :: NullOrUndefined (Role)
-  , "remoteAccessAllowed" :: NullOrUndefined (RemoteAccessAllowed)
+  , "projectRole" :: Maybe (Role)
+  , "remoteAccessAllowed" :: Maybe (RemoteAccessAllowed)
   }
 derive instance newtypeUpdateTeamMemberRequest :: Newtype UpdateTeamMemberRequest _
 derive instance repGenericUpdateTeamMemberRequest :: Generic UpdateTeamMemberRequest _
@@ -1072,19 +1071,19 @@ instance encodeUpdateTeamMemberRequest :: Encode UpdateTeamMemberRequest where e
 
 -- | Constructs UpdateTeamMemberRequest from required parameters
 newUpdateTeamMemberRequest :: ProjectId -> UserArn -> UpdateTeamMemberRequest
-newUpdateTeamMemberRequest _projectId _userArn = UpdateTeamMemberRequest { "projectId": _projectId, "userArn": _userArn, "projectRole": (NullOrUndefined Nothing), "remoteAccessAllowed": (NullOrUndefined Nothing) }
+newUpdateTeamMemberRequest _projectId _userArn = UpdateTeamMemberRequest { "projectId": _projectId, "userArn": _userArn, "projectRole": Nothing, "remoteAccessAllowed": Nothing }
 
 -- | Constructs UpdateTeamMemberRequest's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newUpdateTeamMemberRequest' :: ProjectId -> UserArn -> ( { "projectId" :: (ProjectId) , "userArn" :: (UserArn) , "projectRole" :: NullOrUndefined (Role) , "remoteAccessAllowed" :: NullOrUndefined (RemoteAccessAllowed) } -> {"projectId" :: (ProjectId) , "userArn" :: (UserArn) , "projectRole" :: NullOrUndefined (Role) , "remoteAccessAllowed" :: NullOrUndefined (RemoteAccessAllowed) } ) -> UpdateTeamMemberRequest
-newUpdateTeamMemberRequest' _projectId _userArn customize = (UpdateTeamMemberRequest <<< customize) { "projectId": _projectId, "userArn": _userArn, "projectRole": (NullOrUndefined Nothing), "remoteAccessAllowed": (NullOrUndefined Nothing) }
+newUpdateTeamMemberRequest' :: ProjectId -> UserArn -> ( { "projectId" :: (ProjectId) , "userArn" :: (UserArn) , "projectRole" :: Maybe (Role) , "remoteAccessAllowed" :: Maybe (RemoteAccessAllowed) } -> {"projectId" :: (ProjectId) , "userArn" :: (UserArn) , "projectRole" :: Maybe (Role) , "remoteAccessAllowed" :: Maybe (RemoteAccessAllowed) } ) -> UpdateTeamMemberRequest
+newUpdateTeamMemberRequest' _projectId _userArn customize = (UpdateTeamMemberRequest <<< customize) { "projectId": _projectId, "userArn": _userArn, "projectRole": Nothing, "remoteAccessAllowed": Nothing }
 
 
 
 newtype UpdateTeamMemberResult = UpdateTeamMemberResult 
-  { "userArn" :: NullOrUndefined (UserArn)
-  , "projectRole" :: NullOrUndefined (Role)
-  , "remoteAccessAllowed" :: NullOrUndefined (RemoteAccessAllowed)
+  { "userArn" :: Maybe (UserArn)
+  , "projectRole" :: Maybe (Role)
+  , "remoteAccessAllowed" :: Maybe (RemoteAccessAllowed)
   }
 derive instance newtypeUpdateTeamMemberResult :: Newtype UpdateTeamMemberResult _
 derive instance repGenericUpdateTeamMemberResult :: Generic UpdateTeamMemberResult _
@@ -1094,20 +1093,20 @@ instance encodeUpdateTeamMemberResult :: Encode UpdateTeamMemberResult where enc
 
 -- | Constructs UpdateTeamMemberResult from required parameters
 newUpdateTeamMemberResult :: UpdateTeamMemberResult
-newUpdateTeamMemberResult  = UpdateTeamMemberResult { "projectRole": (NullOrUndefined Nothing), "remoteAccessAllowed": (NullOrUndefined Nothing), "userArn": (NullOrUndefined Nothing) }
+newUpdateTeamMemberResult  = UpdateTeamMemberResult { "projectRole": Nothing, "remoteAccessAllowed": Nothing, "userArn": Nothing }
 
 -- | Constructs UpdateTeamMemberResult's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newUpdateTeamMemberResult' :: ( { "userArn" :: NullOrUndefined (UserArn) , "projectRole" :: NullOrUndefined (Role) , "remoteAccessAllowed" :: NullOrUndefined (RemoteAccessAllowed) } -> {"userArn" :: NullOrUndefined (UserArn) , "projectRole" :: NullOrUndefined (Role) , "remoteAccessAllowed" :: NullOrUndefined (RemoteAccessAllowed) } ) -> UpdateTeamMemberResult
-newUpdateTeamMemberResult'  customize = (UpdateTeamMemberResult <<< customize) { "projectRole": (NullOrUndefined Nothing), "remoteAccessAllowed": (NullOrUndefined Nothing), "userArn": (NullOrUndefined Nothing) }
+newUpdateTeamMemberResult' :: ( { "userArn" :: Maybe (UserArn) , "projectRole" :: Maybe (Role) , "remoteAccessAllowed" :: Maybe (RemoteAccessAllowed) } -> {"userArn" :: Maybe (UserArn) , "projectRole" :: Maybe (Role) , "remoteAccessAllowed" :: Maybe (RemoteAccessAllowed) } ) -> UpdateTeamMemberResult
+newUpdateTeamMemberResult'  customize = (UpdateTeamMemberResult <<< customize) { "projectRole": Nothing, "remoteAccessAllowed": Nothing, "userArn": Nothing }
 
 
 
 newtype UpdateUserProfileRequest = UpdateUserProfileRequest 
   { "userArn" :: (UserArn)
-  , "displayName" :: NullOrUndefined (UserProfileDisplayName)
-  , "emailAddress" :: NullOrUndefined (Email)
-  , "sshPublicKey" :: NullOrUndefined (SshPublicKey)
+  , "displayName" :: Maybe (UserProfileDisplayName)
+  , "emailAddress" :: Maybe (Email)
+  , "sshPublicKey" :: Maybe (SshPublicKey)
   }
 derive instance newtypeUpdateUserProfileRequest :: Newtype UpdateUserProfileRequest _
 derive instance repGenericUpdateUserProfileRequest :: Generic UpdateUserProfileRequest _
@@ -1117,22 +1116,22 @@ instance encodeUpdateUserProfileRequest :: Encode UpdateUserProfileRequest where
 
 -- | Constructs UpdateUserProfileRequest from required parameters
 newUpdateUserProfileRequest :: UserArn -> UpdateUserProfileRequest
-newUpdateUserProfileRequest _userArn = UpdateUserProfileRequest { "userArn": _userArn, "displayName": (NullOrUndefined Nothing), "emailAddress": (NullOrUndefined Nothing), "sshPublicKey": (NullOrUndefined Nothing) }
+newUpdateUserProfileRequest _userArn = UpdateUserProfileRequest { "userArn": _userArn, "displayName": Nothing, "emailAddress": Nothing, "sshPublicKey": Nothing }
 
 -- | Constructs UpdateUserProfileRequest's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newUpdateUserProfileRequest' :: UserArn -> ( { "userArn" :: (UserArn) , "displayName" :: NullOrUndefined (UserProfileDisplayName) , "emailAddress" :: NullOrUndefined (Email) , "sshPublicKey" :: NullOrUndefined (SshPublicKey) } -> {"userArn" :: (UserArn) , "displayName" :: NullOrUndefined (UserProfileDisplayName) , "emailAddress" :: NullOrUndefined (Email) , "sshPublicKey" :: NullOrUndefined (SshPublicKey) } ) -> UpdateUserProfileRequest
-newUpdateUserProfileRequest' _userArn customize = (UpdateUserProfileRequest <<< customize) { "userArn": _userArn, "displayName": (NullOrUndefined Nothing), "emailAddress": (NullOrUndefined Nothing), "sshPublicKey": (NullOrUndefined Nothing) }
+newUpdateUserProfileRequest' :: UserArn -> ( { "userArn" :: (UserArn) , "displayName" :: Maybe (UserProfileDisplayName) , "emailAddress" :: Maybe (Email) , "sshPublicKey" :: Maybe (SshPublicKey) } -> {"userArn" :: (UserArn) , "displayName" :: Maybe (UserProfileDisplayName) , "emailAddress" :: Maybe (Email) , "sshPublicKey" :: Maybe (SshPublicKey) } ) -> UpdateUserProfileRequest
+newUpdateUserProfileRequest' _userArn customize = (UpdateUserProfileRequest <<< customize) { "userArn": _userArn, "displayName": Nothing, "emailAddress": Nothing, "sshPublicKey": Nothing }
 
 
 
 newtype UpdateUserProfileResult = UpdateUserProfileResult 
   { "userArn" :: (UserArn)
-  , "displayName" :: NullOrUndefined (UserProfileDisplayName)
-  , "emailAddress" :: NullOrUndefined (Email)
-  , "sshPublicKey" :: NullOrUndefined (SshPublicKey)
-  , "createdTimestamp" :: NullOrUndefined (CreatedTimestamp)
-  , "lastModifiedTimestamp" :: NullOrUndefined (LastModifiedTimestamp)
+  , "displayName" :: Maybe (UserProfileDisplayName)
+  , "emailAddress" :: Maybe (Email)
+  , "sshPublicKey" :: Maybe (SshPublicKey)
+  , "createdTimestamp" :: Maybe (CreatedTimestamp)
+  , "lastModifiedTimestamp" :: Maybe (LastModifiedTimestamp)
   }
 derive instance newtypeUpdateUserProfileResult :: Newtype UpdateUserProfileResult _
 derive instance repGenericUpdateUserProfileResult :: Generic UpdateUserProfileResult _
@@ -1142,12 +1141,12 @@ instance encodeUpdateUserProfileResult :: Encode UpdateUserProfileResult where e
 
 -- | Constructs UpdateUserProfileResult from required parameters
 newUpdateUserProfileResult :: UserArn -> UpdateUserProfileResult
-newUpdateUserProfileResult _userArn = UpdateUserProfileResult { "userArn": _userArn, "createdTimestamp": (NullOrUndefined Nothing), "displayName": (NullOrUndefined Nothing), "emailAddress": (NullOrUndefined Nothing), "lastModifiedTimestamp": (NullOrUndefined Nothing), "sshPublicKey": (NullOrUndefined Nothing) }
+newUpdateUserProfileResult _userArn = UpdateUserProfileResult { "userArn": _userArn, "createdTimestamp": Nothing, "displayName": Nothing, "emailAddress": Nothing, "lastModifiedTimestamp": Nothing, "sshPublicKey": Nothing }
 
 -- | Constructs UpdateUserProfileResult's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newUpdateUserProfileResult' :: UserArn -> ( { "userArn" :: (UserArn) , "displayName" :: NullOrUndefined (UserProfileDisplayName) , "emailAddress" :: NullOrUndefined (Email) , "sshPublicKey" :: NullOrUndefined (SshPublicKey) , "createdTimestamp" :: NullOrUndefined (CreatedTimestamp) , "lastModifiedTimestamp" :: NullOrUndefined (LastModifiedTimestamp) } -> {"userArn" :: (UserArn) , "displayName" :: NullOrUndefined (UserProfileDisplayName) , "emailAddress" :: NullOrUndefined (Email) , "sshPublicKey" :: NullOrUndefined (SshPublicKey) , "createdTimestamp" :: NullOrUndefined (CreatedTimestamp) , "lastModifiedTimestamp" :: NullOrUndefined (LastModifiedTimestamp) } ) -> UpdateUserProfileResult
-newUpdateUserProfileResult' _userArn customize = (UpdateUserProfileResult <<< customize) { "userArn": _userArn, "createdTimestamp": (NullOrUndefined Nothing), "displayName": (NullOrUndefined Nothing), "emailAddress": (NullOrUndefined Nothing), "lastModifiedTimestamp": (NullOrUndefined Nothing), "sshPublicKey": (NullOrUndefined Nothing) }
+newUpdateUserProfileResult' :: UserArn -> ( { "userArn" :: (UserArn) , "displayName" :: Maybe (UserProfileDisplayName) , "emailAddress" :: Maybe (Email) , "sshPublicKey" :: Maybe (SshPublicKey) , "createdTimestamp" :: Maybe (CreatedTimestamp) , "lastModifiedTimestamp" :: Maybe (LastModifiedTimestamp) } -> {"userArn" :: (UserArn) , "displayName" :: Maybe (UserProfileDisplayName) , "emailAddress" :: Maybe (Email) , "sshPublicKey" :: Maybe (SshPublicKey) , "createdTimestamp" :: Maybe (CreatedTimestamp) , "lastModifiedTimestamp" :: Maybe (LastModifiedTimestamp) } ) -> UpdateUserProfileResult
+newUpdateUserProfileResult' _userArn customize = (UpdateUserProfileResult <<< customize) { "userArn": _userArn, "createdTimestamp": Nothing, "displayName": Nothing, "emailAddress": Nothing, "lastModifiedTimestamp": Nothing, "sshPublicKey": Nothing }
 
 
 
@@ -1191,10 +1190,10 @@ instance encodeUserProfileNotFoundException :: Encode UserProfileNotFoundExcepti
 
 -- | <p>Information about a user's profile in AWS CodeStar.</p>
 newtype UserProfileSummary = UserProfileSummary 
-  { "userArn" :: NullOrUndefined (UserArn)
-  , "displayName" :: NullOrUndefined (UserProfileDisplayName)
-  , "emailAddress" :: NullOrUndefined (Email)
-  , "sshPublicKey" :: NullOrUndefined (SshPublicKey)
+  { "userArn" :: Maybe (UserArn)
+  , "displayName" :: Maybe (UserProfileDisplayName)
+  , "emailAddress" :: Maybe (Email)
+  , "sshPublicKey" :: Maybe (SshPublicKey)
   }
 derive instance newtypeUserProfileSummary :: Newtype UserProfileSummary _
 derive instance repGenericUserProfileSummary :: Generic UserProfileSummary _
@@ -1204,12 +1203,12 @@ instance encodeUserProfileSummary :: Encode UserProfileSummary where encode = ge
 
 -- | Constructs UserProfileSummary from required parameters
 newUserProfileSummary :: UserProfileSummary
-newUserProfileSummary  = UserProfileSummary { "displayName": (NullOrUndefined Nothing), "emailAddress": (NullOrUndefined Nothing), "sshPublicKey": (NullOrUndefined Nothing), "userArn": (NullOrUndefined Nothing) }
+newUserProfileSummary  = UserProfileSummary { "displayName": Nothing, "emailAddress": Nothing, "sshPublicKey": Nothing, "userArn": Nothing }
 
 -- | Constructs UserProfileSummary's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newUserProfileSummary' :: ( { "userArn" :: NullOrUndefined (UserArn) , "displayName" :: NullOrUndefined (UserProfileDisplayName) , "emailAddress" :: NullOrUndefined (Email) , "sshPublicKey" :: NullOrUndefined (SshPublicKey) } -> {"userArn" :: NullOrUndefined (UserArn) , "displayName" :: NullOrUndefined (UserProfileDisplayName) , "emailAddress" :: NullOrUndefined (Email) , "sshPublicKey" :: NullOrUndefined (SshPublicKey) } ) -> UserProfileSummary
-newUserProfileSummary'  customize = (UserProfileSummary <<< customize) { "displayName": (NullOrUndefined Nothing), "emailAddress": (NullOrUndefined Nothing), "sshPublicKey": (NullOrUndefined Nothing), "userArn": (NullOrUndefined Nothing) }
+newUserProfileSummary' :: ( { "userArn" :: Maybe (UserArn) , "displayName" :: Maybe (UserProfileDisplayName) , "emailAddress" :: Maybe (Email) , "sshPublicKey" :: Maybe (SshPublicKey) } -> {"userArn" :: Maybe (UserArn) , "displayName" :: Maybe (UserProfileDisplayName) , "emailAddress" :: Maybe (Email) , "sshPublicKey" :: Maybe (SshPublicKey) } ) -> UserProfileSummary
+newUserProfileSummary'  customize = (UserProfileSummary <<< customize) { "displayName": Nothing, "emailAddress": Nothing, "sshPublicKey": Nothing, "userArn": Nothing }
 
 
 

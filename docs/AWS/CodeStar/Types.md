@@ -10,7 +10,7 @@ options :: Options
 
 ``` purescript
 newtype AssociateTeamMemberRequest
-  = AssociateTeamMemberRequest { projectId :: ProjectId, clientRequestToken :: NullOrUndefined (ClientRequestToken), userArn :: UserArn, projectRole :: Role, remoteAccessAllowed :: NullOrUndefined (RemoteAccessAllowed) }
+  = AssociateTeamMemberRequest { projectId :: ProjectId, clientRequestToken :: Maybe (ClientRequestToken), userArn :: UserArn, projectRole :: Role, remoteAccessAllowed :: Maybe (RemoteAccessAllowed) }
 ```
 
 ##### Instances
@@ -33,7 +33,7 @@ Constructs AssociateTeamMemberRequest from required parameters
 #### `newAssociateTeamMemberRequest'`
 
 ``` purescript
-newAssociateTeamMemberRequest' :: ProjectId -> Role -> UserArn -> ({ projectId :: ProjectId, clientRequestToken :: NullOrUndefined (ClientRequestToken), userArn :: UserArn, projectRole :: Role, remoteAccessAllowed :: NullOrUndefined (RemoteAccessAllowed) } -> { projectId :: ProjectId, clientRequestToken :: NullOrUndefined (ClientRequestToken), userArn :: UserArn, projectRole :: Role, remoteAccessAllowed :: NullOrUndefined (RemoteAccessAllowed) }) -> AssociateTeamMemberRequest
+newAssociateTeamMemberRequest' :: ProjectId -> Role -> UserArn -> ({ projectId :: ProjectId, clientRequestToken :: Maybe (ClientRequestToken), userArn :: UserArn, projectRole :: Role, remoteAccessAllowed :: Maybe (RemoteAccessAllowed) } -> { projectId :: ProjectId, clientRequestToken :: Maybe (ClientRequestToken), userArn :: UserArn, projectRole :: Role, remoteAccessAllowed :: Maybe (RemoteAccessAllowed) }) -> AssociateTeamMemberRequest
 ```
 
 Constructs AssociateTeamMemberRequest's fields from required parameters
@@ -42,7 +42,7 @@ Constructs AssociateTeamMemberRequest's fields from required parameters
 
 ``` purescript
 newtype AssociateTeamMemberResult
-  = AssociateTeamMemberResult { clientRequestToken :: NullOrUndefined (ClientRequestToken) }
+  = AssociateTeamMemberResult { clientRequestToken :: Maybe (ClientRequestToken) }
 ```
 
 ##### Instances
@@ -65,7 +65,7 @@ Constructs AssociateTeamMemberResult from required parameters
 #### `newAssociateTeamMemberResult'`
 
 ``` purescript
-newAssociateTeamMemberResult' :: ({ clientRequestToken :: NullOrUndefined (ClientRequestToken) } -> { clientRequestToken :: NullOrUndefined (ClientRequestToken) }) -> AssociateTeamMemberResult
+newAssociateTeamMemberResult' :: ({ clientRequestToken :: Maybe (ClientRequestToken) } -> { clientRequestToken :: Maybe (ClientRequestToken) }) -> AssociateTeamMemberResult
 ```
 
 Constructs AssociateTeamMemberResult's fields from required parameters
@@ -108,7 +108,7 @@ Encode ConcurrentModificationException
 
 ``` purescript
 newtype CreateProjectRequest
-  = CreateProjectRequest { name :: ProjectName, id :: ProjectId, description :: NullOrUndefined (ProjectDescription), clientRequestToken :: NullOrUndefined (ClientRequestToken) }
+  = CreateProjectRequest { name :: ProjectName, id :: ProjectId, description :: Maybe (ProjectDescription), clientRequestToken :: Maybe (ClientRequestToken) }
 ```
 
 ##### Instances
@@ -131,7 +131,7 @@ Constructs CreateProjectRequest from required parameters
 #### `newCreateProjectRequest'`
 
 ``` purescript
-newCreateProjectRequest' :: ProjectId -> ProjectName -> ({ name :: ProjectName, id :: ProjectId, description :: NullOrUndefined (ProjectDescription), clientRequestToken :: NullOrUndefined (ClientRequestToken) } -> { name :: ProjectName, id :: ProjectId, description :: NullOrUndefined (ProjectDescription), clientRequestToken :: NullOrUndefined (ClientRequestToken) }) -> CreateProjectRequest
+newCreateProjectRequest' :: ProjectId -> ProjectName -> ({ name :: ProjectName, id :: ProjectId, description :: Maybe (ProjectDescription), clientRequestToken :: Maybe (ClientRequestToken) } -> { name :: ProjectName, id :: ProjectId, description :: Maybe (ProjectDescription), clientRequestToken :: Maybe (ClientRequestToken) }) -> CreateProjectRequest
 ```
 
 Constructs CreateProjectRequest's fields from required parameters
@@ -140,7 +140,7 @@ Constructs CreateProjectRequest's fields from required parameters
 
 ``` purescript
 newtype CreateProjectResult
-  = CreateProjectResult { id :: ProjectId, arn :: ProjectArn, clientRequestToken :: NullOrUndefined (ClientRequestToken), projectTemplateId :: NullOrUndefined (ProjectTemplateId) }
+  = CreateProjectResult { id :: ProjectId, arn :: ProjectArn, clientRequestToken :: Maybe (ClientRequestToken), projectTemplateId :: Maybe (ProjectTemplateId) }
 ```
 
 ##### Instances
@@ -163,7 +163,7 @@ Constructs CreateProjectResult from required parameters
 #### `newCreateProjectResult'`
 
 ``` purescript
-newCreateProjectResult' :: ProjectArn -> ProjectId -> ({ id :: ProjectId, arn :: ProjectArn, clientRequestToken :: NullOrUndefined (ClientRequestToken), projectTemplateId :: NullOrUndefined (ProjectTemplateId) } -> { id :: ProjectId, arn :: ProjectArn, clientRequestToken :: NullOrUndefined (ClientRequestToken), projectTemplateId :: NullOrUndefined (ProjectTemplateId) }) -> CreateProjectResult
+newCreateProjectResult' :: ProjectArn -> ProjectId -> ({ id :: ProjectId, arn :: ProjectArn, clientRequestToken :: Maybe (ClientRequestToken), projectTemplateId :: Maybe (ProjectTemplateId) } -> { id :: ProjectId, arn :: ProjectArn, clientRequestToken :: Maybe (ClientRequestToken), projectTemplateId :: Maybe (ProjectTemplateId) }) -> CreateProjectResult
 ```
 
 Constructs CreateProjectResult's fields from required parameters
@@ -172,7 +172,7 @@ Constructs CreateProjectResult's fields from required parameters
 
 ``` purescript
 newtype CreateUserProfileRequest
-  = CreateUserProfileRequest { userArn :: UserArn, displayName :: UserProfileDisplayName, emailAddress :: Email, sshPublicKey :: NullOrUndefined (SshPublicKey) }
+  = CreateUserProfileRequest { userArn :: UserArn, displayName :: UserProfileDisplayName, emailAddress :: Email, sshPublicKey :: Maybe (SshPublicKey) }
 ```
 
 ##### Instances
@@ -195,7 +195,7 @@ Constructs CreateUserProfileRequest from required parameters
 #### `newCreateUserProfileRequest'`
 
 ``` purescript
-newCreateUserProfileRequest' :: UserProfileDisplayName -> Email -> UserArn -> ({ userArn :: UserArn, displayName :: UserProfileDisplayName, emailAddress :: Email, sshPublicKey :: NullOrUndefined (SshPublicKey) } -> { userArn :: UserArn, displayName :: UserProfileDisplayName, emailAddress :: Email, sshPublicKey :: NullOrUndefined (SshPublicKey) }) -> CreateUserProfileRequest
+newCreateUserProfileRequest' :: UserProfileDisplayName -> Email -> UserArn -> ({ userArn :: UserArn, displayName :: UserProfileDisplayName, emailAddress :: Email, sshPublicKey :: Maybe (SshPublicKey) } -> { userArn :: UserArn, displayName :: UserProfileDisplayName, emailAddress :: Email, sshPublicKey :: Maybe (SshPublicKey) }) -> CreateUserProfileRequest
 ```
 
 Constructs CreateUserProfileRequest's fields from required parameters
@@ -204,7 +204,7 @@ Constructs CreateUserProfileRequest's fields from required parameters
 
 ``` purescript
 newtype CreateUserProfileResult
-  = CreateUserProfileResult { userArn :: UserArn, displayName :: NullOrUndefined (UserProfileDisplayName), emailAddress :: NullOrUndefined (Email), sshPublicKey :: NullOrUndefined (SshPublicKey), createdTimestamp :: NullOrUndefined (CreatedTimestamp), lastModifiedTimestamp :: NullOrUndefined (LastModifiedTimestamp) }
+  = CreateUserProfileResult { userArn :: UserArn, displayName :: Maybe (UserProfileDisplayName), emailAddress :: Maybe (Email), sshPublicKey :: Maybe (SshPublicKey), createdTimestamp :: Maybe (CreatedTimestamp), lastModifiedTimestamp :: Maybe (LastModifiedTimestamp) }
 ```
 
 ##### Instances
@@ -227,7 +227,7 @@ Constructs CreateUserProfileResult from required parameters
 #### `newCreateUserProfileResult'`
 
 ``` purescript
-newCreateUserProfileResult' :: UserArn -> ({ userArn :: UserArn, displayName :: NullOrUndefined (UserProfileDisplayName), emailAddress :: NullOrUndefined (Email), sshPublicKey :: NullOrUndefined (SshPublicKey), createdTimestamp :: NullOrUndefined (CreatedTimestamp), lastModifiedTimestamp :: NullOrUndefined (LastModifiedTimestamp) } -> { userArn :: UserArn, displayName :: NullOrUndefined (UserProfileDisplayName), emailAddress :: NullOrUndefined (Email), sshPublicKey :: NullOrUndefined (SshPublicKey), createdTimestamp :: NullOrUndefined (CreatedTimestamp), lastModifiedTimestamp :: NullOrUndefined (LastModifiedTimestamp) }) -> CreateUserProfileResult
+newCreateUserProfileResult' :: UserArn -> ({ userArn :: UserArn, displayName :: Maybe (UserProfileDisplayName), emailAddress :: Maybe (Email), sshPublicKey :: Maybe (SshPublicKey), createdTimestamp :: Maybe (CreatedTimestamp), lastModifiedTimestamp :: Maybe (LastModifiedTimestamp) } -> { userArn :: UserArn, displayName :: Maybe (UserProfileDisplayName), emailAddress :: Maybe (Email), sshPublicKey :: Maybe (SshPublicKey), createdTimestamp :: Maybe (CreatedTimestamp), lastModifiedTimestamp :: Maybe (LastModifiedTimestamp) }) -> CreateUserProfileResult
 ```
 
 Constructs CreateUserProfileResult's fields from required parameters
@@ -252,7 +252,7 @@ Encode CreatedTimestamp
 
 ``` purescript
 newtype DeleteProjectRequest
-  = DeleteProjectRequest { id :: ProjectId, clientRequestToken :: NullOrUndefined (ClientRequestToken), deleteStack :: NullOrUndefined (DeleteStack) }
+  = DeleteProjectRequest { id :: ProjectId, clientRequestToken :: Maybe (ClientRequestToken), deleteStack :: Maybe (DeleteStack) }
 ```
 
 ##### Instances
@@ -275,7 +275,7 @@ Constructs DeleteProjectRequest from required parameters
 #### `newDeleteProjectRequest'`
 
 ``` purescript
-newDeleteProjectRequest' :: ProjectId -> ({ id :: ProjectId, clientRequestToken :: NullOrUndefined (ClientRequestToken), deleteStack :: NullOrUndefined (DeleteStack) } -> { id :: ProjectId, clientRequestToken :: NullOrUndefined (ClientRequestToken), deleteStack :: NullOrUndefined (DeleteStack) }) -> DeleteProjectRequest
+newDeleteProjectRequest' :: ProjectId -> ({ id :: ProjectId, clientRequestToken :: Maybe (ClientRequestToken), deleteStack :: Maybe (DeleteStack) } -> { id :: ProjectId, clientRequestToken :: Maybe (ClientRequestToken), deleteStack :: Maybe (DeleteStack) }) -> DeleteProjectRequest
 ```
 
 Constructs DeleteProjectRequest's fields from required parameters
@@ -284,7 +284,7 @@ Constructs DeleteProjectRequest's fields from required parameters
 
 ``` purescript
 newtype DeleteProjectResult
-  = DeleteProjectResult { stackId :: NullOrUndefined (StackId), projectArn :: NullOrUndefined (ProjectArn) }
+  = DeleteProjectResult { stackId :: Maybe (StackId), projectArn :: Maybe (ProjectArn) }
 ```
 
 ##### Instances
@@ -307,7 +307,7 @@ Constructs DeleteProjectResult from required parameters
 #### `newDeleteProjectResult'`
 
 ``` purescript
-newDeleteProjectResult' :: ({ stackId :: NullOrUndefined (StackId), projectArn :: NullOrUndefined (ProjectArn) } -> { stackId :: NullOrUndefined (StackId), projectArn :: NullOrUndefined (ProjectArn) }) -> DeleteProjectResult
+newDeleteProjectResult' :: ({ stackId :: Maybe (StackId), projectArn :: Maybe (ProjectArn) } -> { stackId :: Maybe (StackId), projectArn :: Maybe (ProjectArn) }) -> DeleteProjectResult
 ```
 
 Constructs DeleteProjectResult's fields from required parameters
@@ -428,7 +428,7 @@ Constructs DescribeProjectRequest's fields from required parameters
 
 ``` purescript
 newtype DescribeProjectResult
-  = DescribeProjectResult { name :: NullOrUndefined (ProjectName), id :: NullOrUndefined (ProjectId), arn :: NullOrUndefined (ProjectArn), description :: NullOrUndefined (ProjectDescription), clientRequestToken :: NullOrUndefined (ClientRequestToken), createdTimeStamp :: NullOrUndefined (CreatedTimestamp), stackId :: NullOrUndefined (StackId), projectTemplateId :: NullOrUndefined (ProjectTemplateId) }
+  = DescribeProjectResult { name :: Maybe (ProjectName), id :: Maybe (ProjectId), arn :: Maybe (ProjectArn), description :: Maybe (ProjectDescription), clientRequestToken :: Maybe (ClientRequestToken), createdTimeStamp :: Maybe (CreatedTimestamp), stackId :: Maybe (StackId), projectTemplateId :: Maybe (ProjectTemplateId) }
 ```
 
 ##### Instances
@@ -451,7 +451,7 @@ Constructs DescribeProjectResult from required parameters
 #### `newDescribeProjectResult'`
 
 ``` purescript
-newDescribeProjectResult' :: ({ name :: NullOrUndefined (ProjectName), id :: NullOrUndefined (ProjectId), arn :: NullOrUndefined (ProjectArn), description :: NullOrUndefined (ProjectDescription), clientRequestToken :: NullOrUndefined (ClientRequestToken), createdTimeStamp :: NullOrUndefined (CreatedTimestamp), stackId :: NullOrUndefined (StackId), projectTemplateId :: NullOrUndefined (ProjectTemplateId) } -> { name :: NullOrUndefined (ProjectName), id :: NullOrUndefined (ProjectId), arn :: NullOrUndefined (ProjectArn), description :: NullOrUndefined (ProjectDescription), clientRequestToken :: NullOrUndefined (ClientRequestToken), createdTimeStamp :: NullOrUndefined (CreatedTimestamp), stackId :: NullOrUndefined (StackId), projectTemplateId :: NullOrUndefined (ProjectTemplateId) }) -> DescribeProjectResult
+newDescribeProjectResult' :: ({ name :: Maybe (ProjectName), id :: Maybe (ProjectId), arn :: Maybe (ProjectArn), description :: Maybe (ProjectDescription), clientRequestToken :: Maybe (ClientRequestToken), createdTimeStamp :: Maybe (CreatedTimestamp), stackId :: Maybe (StackId), projectTemplateId :: Maybe (ProjectTemplateId) } -> { name :: Maybe (ProjectName), id :: Maybe (ProjectId), arn :: Maybe (ProjectArn), description :: Maybe (ProjectDescription), clientRequestToken :: Maybe (ClientRequestToken), createdTimeStamp :: Maybe (CreatedTimestamp), stackId :: Maybe (StackId), projectTemplateId :: Maybe (ProjectTemplateId) }) -> DescribeProjectResult
 ```
 
 Constructs DescribeProjectResult's fields from required parameters
@@ -492,7 +492,7 @@ Constructs DescribeUserProfileRequest's fields from required parameters
 
 ``` purescript
 newtype DescribeUserProfileResult
-  = DescribeUserProfileResult { userArn :: UserArn, displayName :: NullOrUndefined (UserProfileDisplayName), emailAddress :: NullOrUndefined (Email), sshPublicKey :: NullOrUndefined (SshPublicKey), createdTimestamp :: CreatedTimestamp, lastModifiedTimestamp :: LastModifiedTimestamp }
+  = DescribeUserProfileResult { userArn :: UserArn, displayName :: Maybe (UserProfileDisplayName), emailAddress :: Maybe (Email), sshPublicKey :: Maybe (SshPublicKey), createdTimestamp :: CreatedTimestamp, lastModifiedTimestamp :: LastModifiedTimestamp }
 ```
 
 ##### Instances
@@ -515,7 +515,7 @@ Constructs DescribeUserProfileResult from required parameters
 #### `newDescribeUserProfileResult'`
 
 ``` purescript
-newDescribeUserProfileResult' :: CreatedTimestamp -> LastModifiedTimestamp -> UserArn -> ({ userArn :: UserArn, displayName :: NullOrUndefined (UserProfileDisplayName), emailAddress :: NullOrUndefined (Email), sshPublicKey :: NullOrUndefined (SshPublicKey), createdTimestamp :: CreatedTimestamp, lastModifiedTimestamp :: LastModifiedTimestamp } -> { userArn :: UserArn, displayName :: NullOrUndefined (UserProfileDisplayName), emailAddress :: NullOrUndefined (Email), sshPublicKey :: NullOrUndefined (SshPublicKey), createdTimestamp :: CreatedTimestamp, lastModifiedTimestamp :: LastModifiedTimestamp }) -> DescribeUserProfileResult
+newDescribeUserProfileResult' :: CreatedTimestamp -> LastModifiedTimestamp -> UserArn -> ({ userArn :: UserArn, displayName :: Maybe (UserProfileDisplayName), emailAddress :: Maybe (Email), sshPublicKey :: Maybe (SshPublicKey), createdTimestamp :: CreatedTimestamp, lastModifiedTimestamp :: LastModifiedTimestamp } -> { userArn :: UserArn, displayName :: Maybe (UserProfileDisplayName), emailAddress :: Maybe (Email), sshPublicKey :: Maybe (SshPublicKey), createdTimestamp :: CreatedTimestamp, lastModifiedTimestamp :: LastModifiedTimestamp }) -> DescribeUserProfileResult
 ```
 
 Constructs DescribeUserProfileResult's fields from required parameters
@@ -658,7 +658,7 @@ Encode LimitExceededException
 
 ``` purescript
 newtype ListProjectsRequest
-  = ListProjectsRequest { nextToken :: NullOrUndefined (PaginationToken), maxResults :: NullOrUndefined (MaxResults) }
+  = ListProjectsRequest { nextToken :: Maybe (PaginationToken), maxResults :: Maybe (MaxResults) }
 ```
 
 ##### Instances
@@ -681,7 +681,7 @@ Constructs ListProjectsRequest from required parameters
 #### `newListProjectsRequest'`
 
 ``` purescript
-newListProjectsRequest' :: ({ nextToken :: NullOrUndefined (PaginationToken), maxResults :: NullOrUndefined (MaxResults) } -> { nextToken :: NullOrUndefined (PaginationToken), maxResults :: NullOrUndefined (MaxResults) }) -> ListProjectsRequest
+newListProjectsRequest' :: ({ nextToken :: Maybe (PaginationToken), maxResults :: Maybe (MaxResults) } -> { nextToken :: Maybe (PaginationToken), maxResults :: Maybe (MaxResults) }) -> ListProjectsRequest
 ```
 
 Constructs ListProjectsRequest's fields from required parameters
@@ -690,7 +690,7 @@ Constructs ListProjectsRequest's fields from required parameters
 
 ``` purescript
 newtype ListProjectsResult
-  = ListProjectsResult { projects :: ProjectsList, nextToken :: NullOrUndefined (PaginationToken) }
+  = ListProjectsResult { projects :: ProjectsList, nextToken :: Maybe (PaginationToken) }
 ```
 
 ##### Instances
@@ -713,7 +713,7 @@ Constructs ListProjectsResult from required parameters
 #### `newListProjectsResult'`
 
 ``` purescript
-newListProjectsResult' :: ProjectsList -> ({ projects :: ProjectsList, nextToken :: NullOrUndefined (PaginationToken) } -> { projects :: ProjectsList, nextToken :: NullOrUndefined (PaginationToken) }) -> ListProjectsResult
+newListProjectsResult' :: ProjectsList -> ({ projects :: ProjectsList, nextToken :: Maybe (PaginationToken) } -> { projects :: ProjectsList, nextToken :: Maybe (PaginationToken) }) -> ListProjectsResult
 ```
 
 Constructs ListProjectsResult's fields from required parameters
@@ -722,7 +722,7 @@ Constructs ListProjectsResult's fields from required parameters
 
 ``` purescript
 newtype ListResourcesRequest
-  = ListResourcesRequest { projectId :: ProjectId, nextToken :: NullOrUndefined (PaginationToken), maxResults :: NullOrUndefined (MaxResults) }
+  = ListResourcesRequest { projectId :: ProjectId, nextToken :: Maybe (PaginationToken), maxResults :: Maybe (MaxResults) }
 ```
 
 ##### Instances
@@ -745,7 +745,7 @@ Constructs ListResourcesRequest from required parameters
 #### `newListResourcesRequest'`
 
 ``` purescript
-newListResourcesRequest' :: ProjectId -> ({ projectId :: ProjectId, nextToken :: NullOrUndefined (PaginationToken), maxResults :: NullOrUndefined (MaxResults) } -> { projectId :: ProjectId, nextToken :: NullOrUndefined (PaginationToken), maxResults :: NullOrUndefined (MaxResults) }) -> ListResourcesRequest
+newListResourcesRequest' :: ProjectId -> ({ projectId :: ProjectId, nextToken :: Maybe (PaginationToken), maxResults :: Maybe (MaxResults) } -> { projectId :: ProjectId, nextToken :: Maybe (PaginationToken), maxResults :: Maybe (MaxResults) }) -> ListResourcesRequest
 ```
 
 Constructs ListResourcesRequest's fields from required parameters
@@ -754,7 +754,7 @@ Constructs ListResourcesRequest's fields from required parameters
 
 ``` purescript
 newtype ListResourcesResult
-  = ListResourcesResult { resources :: NullOrUndefined (ResourcesResult), nextToken :: NullOrUndefined (PaginationToken) }
+  = ListResourcesResult { resources :: Maybe (ResourcesResult), nextToken :: Maybe (PaginationToken) }
 ```
 
 ##### Instances
@@ -777,7 +777,7 @@ Constructs ListResourcesResult from required parameters
 #### `newListResourcesResult'`
 
 ``` purescript
-newListResourcesResult' :: ({ resources :: NullOrUndefined (ResourcesResult), nextToken :: NullOrUndefined (PaginationToken) } -> { resources :: NullOrUndefined (ResourcesResult), nextToken :: NullOrUndefined (PaginationToken) }) -> ListResourcesResult
+newListResourcesResult' :: ({ resources :: Maybe (ResourcesResult), nextToken :: Maybe (PaginationToken) } -> { resources :: Maybe (ResourcesResult), nextToken :: Maybe (PaginationToken) }) -> ListResourcesResult
 ```
 
 Constructs ListResourcesResult's fields from required parameters
@@ -786,7 +786,7 @@ Constructs ListResourcesResult's fields from required parameters
 
 ``` purescript
 newtype ListTagsForProjectRequest
-  = ListTagsForProjectRequest { id :: ProjectId, nextToken :: NullOrUndefined (PaginationToken), maxResults :: NullOrUndefined (MaxResults) }
+  = ListTagsForProjectRequest { id :: ProjectId, nextToken :: Maybe (PaginationToken), maxResults :: Maybe (MaxResults) }
 ```
 
 ##### Instances
@@ -809,7 +809,7 @@ Constructs ListTagsForProjectRequest from required parameters
 #### `newListTagsForProjectRequest'`
 
 ``` purescript
-newListTagsForProjectRequest' :: ProjectId -> ({ id :: ProjectId, nextToken :: NullOrUndefined (PaginationToken), maxResults :: NullOrUndefined (MaxResults) } -> { id :: ProjectId, nextToken :: NullOrUndefined (PaginationToken), maxResults :: NullOrUndefined (MaxResults) }) -> ListTagsForProjectRequest
+newListTagsForProjectRequest' :: ProjectId -> ({ id :: ProjectId, nextToken :: Maybe (PaginationToken), maxResults :: Maybe (MaxResults) } -> { id :: ProjectId, nextToken :: Maybe (PaginationToken), maxResults :: Maybe (MaxResults) }) -> ListTagsForProjectRequest
 ```
 
 Constructs ListTagsForProjectRequest's fields from required parameters
@@ -818,7 +818,7 @@ Constructs ListTagsForProjectRequest's fields from required parameters
 
 ``` purescript
 newtype ListTagsForProjectResult
-  = ListTagsForProjectResult { tags :: NullOrUndefined (Tags), nextToken :: NullOrUndefined (PaginationToken) }
+  = ListTagsForProjectResult { tags :: Maybe (Tags), nextToken :: Maybe (PaginationToken) }
 ```
 
 ##### Instances
@@ -841,7 +841,7 @@ Constructs ListTagsForProjectResult from required parameters
 #### `newListTagsForProjectResult'`
 
 ``` purescript
-newListTagsForProjectResult' :: ({ tags :: NullOrUndefined (Tags), nextToken :: NullOrUndefined (PaginationToken) } -> { tags :: NullOrUndefined (Tags), nextToken :: NullOrUndefined (PaginationToken) }) -> ListTagsForProjectResult
+newListTagsForProjectResult' :: ({ tags :: Maybe (Tags), nextToken :: Maybe (PaginationToken) } -> { tags :: Maybe (Tags), nextToken :: Maybe (PaginationToken) }) -> ListTagsForProjectResult
 ```
 
 Constructs ListTagsForProjectResult's fields from required parameters
@@ -850,7 +850,7 @@ Constructs ListTagsForProjectResult's fields from required parameters
 
 ``` purescript
 newtype ListTeamMembersRequest
-  = ListTeamMembersRequest { projectId :: ProjectId, nextToken :: NullOrUndefined (PaginationToken), maxResults :: NullOrUndefined (MaxResults) }
+  = ListTeamMembersRequest { projectId :: ProjectId, nextToken :: Maybe (PaginationToken), maxResults :: Maybe (MaxResults) }
 ```
 
 ##### Instances
@@ -873,7 +873,7 @@ Constructs ListTeamMembersRequest from required parameters
 #### `newListTeamMembersRequest'`
 
 ``` purescript
-newListTeamMembersRequest' :: ProjectId -> ({ projectId :: ProjectId, nextToken :: NullOrUndefined (PaginationToken), maxResults :: NullOrUndefined (MaxResults) } -> { projectId :: ProjectId, nextToken :: NullOrUndefined (PaginationToken), maxResults :: NullOrUndefined (MaxResults) }) -> ListTeamMembersRequest
+newListTeamMembersRequest' :: ProjectId -> ({ projectId :: ProjectId, nextToken :: Maybe (PaginationToken), maxResults :: Maybe (MaxResults) } -> { projectId :: ProjectId, nextToken :: Maybe (PaginationToken), maxResults :: Maybe (MaxResults) }) -> ListTeamMembersRequest
 ```
 
 Constructs ListTeamMembersRequest's fields from required parameters
@@ -882,7 +882,7 @@ Constructs ListTeamMembersRequest's fields from required parameters
 
 ``` purescript
 newtype ListTeamMembersResult
-  = ListTeamMembersResult { teamMembers :: TeamMemberResult, nextToken :: NullOrUndefined (PaginationToken) }
+  = ListTeamMembersResult { teamMembers :: TeamMemberResult, nextToken :: Maybe (PaginationToken) }
 ```
 
 ##### Instances
@@ -905,7 +905,7 @@ Constructs ListTeamMembersResult from required parameters
 #### `newListTeamMembersResult'`
 
 ``` purescript
-newListTeamMembersResult' :: TeamMemberResult -> ({ teamMembers :: TeamMemberResult, nextToken :: NullOrUndefined (PaginationToken) } -> { teamMembers :: TeamMemberResult, nextToken :: NullOrUndefined (PaginationToken) }) -> ListTeamMembersResult
+newListTeamMembersResult' :: TeamMemberResult -> ({ teamMembers :: TeamMemberResult, nextToken :: Maybe (PaginationToken) } -> { teamMembers :: TeamMemberResult, nextToken :: Maybe (PaginationToken) }) -> ListTeamMembersResult
 ```
 
 Constructs ListTeamMembersResult's fields from required parameters
@@ -914,7 +914,7 @@ Constructs ListTeamMembersResult's fields from required parameters
 
 ``` purescript
 newtype ListUserProfilesRequest
-  = ListUserProfilesRequest { nextToken :: NullOrUndefined (PaginationToken), maxResults :: NullOrUndefined (MaxResults) }
+  = ListUserProfilesRequest { nextToken :: Maybe (PaginationToken), maxResults :: Maybe (MaxResults) }
 ```
 
 ##### Instances
@@ -937,7 +937,7 @@ Constructs ListUserProfilesRequest from required parameters
 #### `newListUserProfilesRequest'`
 
 ``` purescript
-newListUserProfilesRequest' :: ({ nextToken :: NullOrUndefined (PaginationToken), maxResults :: NullOrUndefined (MaxResults) } -> { nextToken :: NullOrUndefined (PaginationToken), maxResults :: NullOrUndefined (MaxResults) }) -> ListUserProfilesRequest
+newListUserProfilesRequest' :: ({ nextToken :: Maybe (PaginationToken), maxResults :: Maybe (MaxResults) } -> { nextToken :: Maybe (PaginationToken), maxResults :: Maybe (MaxResults) }) -> ListUserProfilesRequest
 ```
 
 Constructs ListUserProfilesRequest's fields from required parameters
@@ -946,7 +946,7 @@ Constructs ListUserProfilesRequest's fields from required parameters
 
 ``` purescript
 newtype ListUserProfilesResult
-  = ListUserProfilesResult { userProfiles :: UserProfilesList, nextToken :: NullOrUndefined (PaginationToken) }
+  = ListUserProfilesResult { userProfiles :: UserProfilesList, nextToken :: Maybe (PaginationToken) }
 ```
 
 ##### Instances
@@ -969,7 +969,7 @@ Constructs ListUserProfilesResult from required parameters
 #### `newListUserProfilesResult'`
 
 ``` purescript
-newListUserProfilesResult' :: UserProfilesList -> ({ userProfiles :: UserProfilesList, nextToken :: NullOrUndefined (PaginationToken) } -> { userProfiles :: UserProfilesList, nextToken :: NullOrUndefined (PaginationToken) }) -> ListUserProfilesResult
+newListUserProfilesResult' :: UserProfilesList -> ({ userProfiles :: UserProfilesList, nextToken :: Maybe (PaginationToken) } -> { userProfiles :: UserProfilesList, nextToken :: Maybe (PaginationToken) }) -> ListUserProfilesResult
 ```
 
 Constructs ListUserProfilesResult's fields from required parameters
@@ -1146,7 +1146,7 @@ Encode ProjectNotFoundException
 
 ``` purescript
 newtype ProjectSummary
-  = ProjectSummary { projectId :: NullOrUndefined (ProjectId), projectArn :: NullOrUndefined (ProjectArn) }
+  = ProjectSummary { projectId :: Maybe (ProjectId), projectArn :: Maybe (ProjectArn) }
 ```
 
 <p>Information about the metadata for a project.</p>
@@ -1171,7 +1171,7 @@ Constructs ProjectSummary from required parameters
 #### `newProjectSummary'`
 
 ``` purescript
-newProjectSummary' :: ({ projectId :: NullOrUndefined (ProjectId), projectArn :: NullOrUndefined (ProjectArn) } -> { projectId :: NullOrUndefined (ProjectId), projectArn :: NullOrUndefined (ProjectArn) }) -> ProjectSummary
+newProjectSummary' :: ({ projectId :: Maybe (ProjectId), projectArn :: Maybe (ProjectArn) } -> { projectId :: Maybe (ProjectId), projectArn :: Maybe (ProjectArn) }) -> ProjectSummary
 ```
 
 Constructs ProjectSummary's fields from required parameters
@@ -1406,7 +1406,7 @@ Constructs TagProjectRequest's fields from required parameters
 
 ``` purescript
 newtype TagProjectResult
-  = TagProjectResult { tags :: NullOrUndefined (Tags) }
+  = TagProjectResult { tags :: Maybe (Tags) }
 ```
 
 ##### Instances
@@ -1429,7 +1429,7 @@ Constructs TagProjectResult from required parameters
 #### `newTagProjectResult'`
 
 ``` purescript
-newTagProjectResult' :: ({ tags :: NullOrUndefined (Tags) } -> { tags :: NullOrUndefined (Tags) }) -> TagProjectResult
+newTagProjectResult' :: ({ tags :: Maybe (Tags) } -> { tags :: Maybe (Tags) }) -> TagProjectResult
 ```
 
 Constructs TagProjectResult's fields from required parameters
@@ -1470,7 +1470,7 @@ Encode Tags
 
 ``` purescript
 newtype TeamMember
-  = TeamMember { userArn :: UserArn, projectRole :: Role, remoteAccessAllowed :: NullOrUndefined (RemoteAccessAllowed) }
+  = TeamMember { userArn :: UserArn, projectRole :: Role, remoteAccessAllowed :: Maybe (RemoteAccessAllowed) }
 ```
 
 <p>Information about a team member in a project.</p>
@@ -1495,7 +1495,7 @@ Constructs TeamMember from required parameters
 #### `newTeamMember'`
 
 ``` purescript
-newTeamMember' :: Role -> UserArn -> ({ userArn :: UserArn, projectRole :: Role, remoteAccessAllowed :: NullOrUndefined (RemoteAccessAllowed) } -> { userArn :: UserArn, projectRole :: Role, remoteAccessAllowed :: NullOrUndefined (RemoteAccessAllowed) }) -> TeamMember
+newTeamMember' :: Role -> UserArn -> ({ userArn :: UserArn, projectRole :: Role, remoteAccessAllowed :: Maybe (RemoteAccessAllowed) } -> { userArn :: UserArn, projectRole :: Role, remoteAccessAllowed :: Maybe (RemoteAccessAllowed) }) -> TeamMember
 ```
 
 Constructs TeamMember's fields from required parameters
@@ -1604,7 +1604,7 @@ Encode UntagProjectResult
 
 ``` purescript
 newtype UpdateProjectRequest
-  = UpdateProjectRequest { id :: ProjectId, name :: NullOrUndefined (ProjectName), description :: NullOrUndefined (ProjectDescription) }
+  = UpdateProjectRequest { id :: ProjectId, name :: Maybe (ProjectName), description :: Maybe (ProjectDescription) }
 ```
 
 ##### Instances
@@ -1627,7 +1627,7 @@ Constructs UpdateProjectRequest from required parameters
 #### `newUpdateProjectRequest'`
 
 ``` purescript
-newUpdateProjectRequest' :: ProjectId -> ({ id :: ProjectId, name :: NullOrUndefined (ProjectName), description :: NullOrUndefined (ProjectDescription) } -> { id :: ProjectId, name :: NullOrUndefined (ProjectName), description :: NullOrUndefined (ProjectDescription) }) -> UpdateProjectRequest
+newUpdateProjectRequest' :: ProjectId -> ({ id :: ProjectId, name :: Maybe (ProjectName), description :: Maybe (ProjectDescription) } -> { id :: ProjectId, name :: Maybe (ProjectName), description :: Maybe (ProjectDescription) }) -> UpdateProjectRequest
 ```
 
 Constructs UpdateProjectRequest's fields from required parameters
@@ -1652,7 +1652,7 @@ Encode UpdateProjectResult
 
 ``` purescript
 newtype UpdateTeamMemberRequest
-  = UpdateTeamMemberRequest { projectId :: ProjectId, userArn :: UserArn, projectRole :: NullOrUndefined (Role), remoteAccessAllowed :: NullOrUndefined (RemoteAccessAllowed) }
+  = UpdateTeamMemberRequest { projectId :: ProjectId, userArn :: UserArn, projectRole :: Maybe (Role), remoteAccessAllowed :: Maybe (RemoteAccessAllowed) }
 ```
 
 ##### Instances
@@ -1675,7 +1675,7 @@ Constructs UpdateTeamMemberRequest from required parameters
 #### `newUpdateTeamMemberRequest'`
 
 ``` purescript
-newUpdateTeamMemberRequest' :: ProjectId -> UserArn -> ({ projectId :: ProjectId, userArn :: UserArn, projectRole :: NullOrUndefined (Role), remoteAccessAllowed :: NullOrUndefined (RemoteAccessAllowed) } -> { projectId :: ProjectId, userArn :: UserArn, projectRole :: NullOrUndefined (Role), remoteAccessAllowed :: NullOrUndefined (RemoteAccessAllowed) }) -> UpdateTeamMemberRequest
+newUpdateTeamMemberRequest' :: ProjectId -> UserArn -> ({ projectId :: ProjectId, userArn :: UserArn, projectRole :: Maybe (Role), remoteAccessAllowed :: Maybe (RemoteAccessAllowed) } -> { projectId :: ProjectId, userArn :: UserArn, projectRole :: Maybe (Role), remoteAccessAllowed :: Maybe (RemoteAccessAllowed) }) -> UpdateTeamMemberRequest
 ```
 
 Constructs UpdateTeamMemberRequest's fields from required parameters
@@ -1684,7 +1684,7 @@ Constructs UpdateTeamMemberRequest's fields from required parameters
 
 ``` purescript
 newtype UpdateTeamMemberResult
-  = UpdateTeamMemberResult { userArn :: NullOrUndefined (UserArn), projectRole :: NullOrUndefined (Role), remoteAccessAllowed :: NullOrUndefined (RemoteAccessAllowed) }
+  = UpdateTeamMemberResult { userArn :: Maybe (UserArn), projectRole :: Maybe (Role), remoteAccessAllowed :: Maybe (RemoteAccessAllowed) }
 ```
 
 ##### Instances
@@ -1707,7 +1707,7 @@ Constructs UpdateTeamMemberResult from required parameters
 #### `newUpdateTeamMemberResult'`
 
 ``` purescript
-newUpdateTeamMemberResult' :: ({ userArn :: NullOrUndefined (UserArn), projectRole :: NullOrUndefined (Role), remoteAccessAllowed :: NullOrUndefined (RemoteAccessAllowed) } -> { userArn :: NullOrUndefined (UserArn), projectRole :: NullOrUndefined (Role), remoteAccessAllowed :: NullOrUndefined (RemoteAccessAllowed) }) -> UpdateTeamMemberResult
+newUpdateTeamMemberResult' :: ({ userArn :: Maybe (UserArn), projectRole :: Maybe (Role), remoteAccessAllowed :: Maybe (RemoteAccessAllowed) } -> { userArn :: Maybe (UserArn), projectRole :: Maybe (Role), remoteAccessAllowed :: Maybe (RemoteAccessAllowed) }) -> UpdateTeamMemberResult
 ```
 
 Constructs UpdateTeamMemberResult's fields from required parameters
@@ -1716,7 +1716,7 @@ Constructs UpdateTeamMemberResult's fields from required parameters
 
 ``` purescript
 newtype UpdateUserProfileRequest
-  = UpdateUserProfileRequest { userArn :: UserArn, displayName :: NullOrUndefined (UserProfileDisplayName), emailAddress :: NullOrUndefined (Email), sshPublicKey :: NullOrUndefined (SshPublicKey) }
+  = UpdateUserProfileRequest { userArn :: UserArn, displayName :: Maybe (UserProfileDisplayName), emailAddress :: Maybe (Email), sshPublicKey :: Maybe (SshPublicKey) }
 ```
 
 ##### Instances
@@ -1739,7 +1739,7 @@ Constructs UpdateUserProfileRequest from required parameters
 #### `newUpdateUserProfileRequest'`
 
 ``` purescript
-newUpdateUserProfileRequest' :: UserArn -> ({ userArn :: UserArn, displayName :: NullOrUndefined (UserProfileDisplayName), emailAddress :: NullOrUndefined (Email), sshPublicKey :: NullOrUndefined (SshPublicKey) } -> { userArn :: UserArn, displayName :: NullOrUndefined (UserProfileDisplayName), emailAddress :: NullOrUndefined (Email), sshPublicKey :: NullOrUndefined (SshPublicKey) }) -> UpdateUserProfileRequest
+newUpdateUserProfileRequest' :: UserArn -> ({ userArn :: UserArn, displayName :: Maybe (UserProfileDisplayName), emailAddress :: Maybe (Email), sshPublicKey :: Maybe (SshPublicKey) } -> { userArn :: UserArn, displayName :: Maybe (UserProfileDisplayName), emailAddress :: Maybe (Email), sshPublicKey :: Maybe (SshPublicKey) }) -> UpdateUserProfileRequest
 ```
 
 Constructs UpdateUserProfileRequest's fields from required parameters
@@ -1748,7 +1748,7 @@ Constructs UpdateUserProfileRequest's fields from required parameters
 
 ``` purescript
 newtype UpdateUserProfileResult
-  = UpdateUserProfileResult { userArn :: UserArn, displayName :: NullOrUndefined (UserProfileDisplayName), emailAddress :: NullOrUndefined (Email), sshPublicKey :: NullOrUndefined (SshPublicKey), createdTimestamp :: NullOrUndefined (CreatedTimestamp), lastModifiedTimestamp :: NullOrUndefined (LastModifiedTimestamp) }
+  = UpdateUserProfileResult { userArn :: UserArn, displayName :: Maybe (UserProfileDisplayName), emailAddress :: Maybe (Email), sshPublicKey :: Maybe (SshPublicKey), createdTimestamp :: Maybe (CreatedTimestamp), lastModifiedTimestamp :: Maybe (LastModifiedTimestamp) }
 ```
 
 ##### Instances
@@ -1771,7 +1771,7 @@ Constructs UpdateUserProfileResult from required parameters
 #### `newUpdateUserProfileResult'`
 
 ``` purescript
-newUpdateUserProfileResult' :: UserArn -> ({ userArn :: UserArn, displayName :: NullOrUndefined (UserProfileDisplayName), emailAddress :: NullOrUndefined (Email), sshPublicKey :: NullOrUndefined (SshPublicKey), createdTimestamp :: NullOrUndefined (CreatedTimestamp), lastModifiedTimestamp :: NullOrUndefined (LastModifiedTimestamp) } -> { userArn :: UserArn, displayName :: NullOrUndefined (UserProfileDisplayName), emailAddress :: NullOrUndefined (Email), sshPublicKey :: NullOrUndefined (SshPublicKey), createdTimestamp :: NullOrUndefined (CreatedTimestamp), lastModifiedTimestamp :: NullOrUndefined (LastModifiedTimestamp) }) -> UpdateUserProfileResult
+newUpdateUserProfileResult' :: UserArn -> ({ userArn :: UserArn, displayName :: Maybe (UserProfileDisplayName), emailAddress :: Maybe (Email), sshPublicKey :: Maybe (SshPublicKey), createdTimestamp :: Maybe (CreatedTimestamp), lastModifiedTimestamp :: Maybe (LastModifiedTimestamp) } -> { userArn :: UserArn, displayName :: Maybe (UserProfileDisplayName), emailAddress :: Maybe (Email), sshPublicKey :: Maybe (SshPublicKey), createdTimestamp :: Maybe (CreatedTimestamp), lastModifiedTimestamp :: Maybe (LastModifiedTimestamp) }) -> UpdateUserProfileResult
 ```
 
 Constructs UpdateUserProfileResult's fields from required parameters
@@ -1848,7 +1848,7 @@ Encode UserProfileNotFoundException
 
 ``` purescript
 newtype UserProfileSummary
-  = UserProfileSummary { userArn :: NullOrUndefined (UserArn), displayName :: NullOrUndefined (UserProfileDisplayName), emailAddress :: NullOrUndefined (Email), sshPublicKey :: NullOrUndefined (SshPublicKey) }
+  = UserProfileSummary { userArn :: Maybe (UserArn), displayName :: Maybe (UserProfileDisplayName), emailAddress :: Maybe (Email), sshPublicKey :: Maybe (SshPublicKey) }
 ```
 
 <p>Information about a user's profile in AWS CodeStar.</p>
@@ -1873,7 +1873,7 @@ Constructs UserProfileSummary from required parameters
 #### `newUserProfileSummary'`
 
 ``` purescript
-newUserProfileSummary' :: ({ userArn :: NullOrUndefined (UserArn), displayName :: NullOrUndefined (UserProfileDisplayName), emailAddress :: NullOrUndefined (Email), sshPublicKey :: NullOrUndefined (SshPublicKey) } -> { userArn :: NullOrUndefined (UserArn), displayName :: NullOrUndefined (UserProfileDisplayName), emailAddress :: NullOrUndefined (Email), sshPublicKey :: NullOrUndefined (SshPublicKey) }) -> UserProfileSummary
+newUserProfileSummary' :: ({ userArn :: Maybe (UserArn), displayName :: Maybe (UserProfileDisplayName), emailAddress :: Maybe (Email), sshPublicKey :: Maybe (SshPublicKey) } -> { userArn :: Maybe (UserArn), displayName :: Maybe (UserProfileDisplayName), emailAddress :: Maybe (Email), sshPublicKey :: Maybe (SshPublicKey) }) -> UserProfileSummary
 ```
 
 Constructs UserProfileSummary's fields from required parameters
